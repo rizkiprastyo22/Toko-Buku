@@ -39,9 +39,9 @@
                       <td class="center-align">Rp. <?php echo $harga; ?></td>
                       <td class="center-align">
                         <a href="<?php echo base_url('keranjang/edit/' . $row->pid); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Edit Data"><i class="material-icons">edit</i></a>
-                        <a href="#modal1" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Delete Data"><i class="material-icons">delete</i></a>
+                        <a href="<?php echo base_url('keranjang/delete/' . $row->pid); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Delete Data"><i class="material-icons">delete</i></a>
                         <!-- Modal Structure -->
-                        <div id="modal1" class="modal" style="width:350px;">
+                        <!-- <div id="modal1" class="modal" style="width:350px;">
                           <div class="modal-content purple lighten-2 white-text">
                             <h4 style="font-size: 1.5rem;">Konfirmasi Hapus Buku</h4>
                           </div>
@@ -52,7 +52,7 @@
                             <a href="<?php echo base_url('keranjang/delete/' . $row->pid); ?>" class="modal-close waves-effect waves-green btn purple lighten-2">Yakin</a>
                             <a href="" class="modal-close waves-effect waves-green btn-flat">Tidak Jadi</a>
                           </div>
-                        </div>
+                        </div> -->
                       </td>
                     </tr>
                   <?php endforeach; ?>

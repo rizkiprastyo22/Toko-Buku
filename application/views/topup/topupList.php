@@ -36,9 +36,9 @@
                       <td class="center-align">Rp. <?php echo $harga; ?></td> -->
                       <td class="center-align">
                         <a href="<?php echo base_url('topup/edit/' . $row->tid); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Konfirmasi"><i class="material-icons">edit</i></a>
-                        <a href="#modal1" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Delete Data"><i class="material-icons">delete</i></a>
+                        <a href="<?php echo base_url('topup/delete/' . $row->tid); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Delete Data"><i class="material-icons">delete</i></a>
                         <!-- Modal Structure -->
-                        <div id="modal1" class="modal">
+                        <!-- <div id="modal1" class="modal">
                           <div class="modal-content purple lighten-2 white-text">
                             <h4 style="font-size: 1.5rem;">Konfirmasi Delete Permohonan</h4>
                           </div>
@@ -49,7 +49,7 @@
                             <a href="<?php echo base_url('topup/delete/' . $row->tid); ?>" class="modal-close waves-effect waves-green btn-flat">Yakin</a>
                             <a href="" class="modal-close waves-effect waves-green btn-flat">Tidak Jadi</a>
                           </div>
-                        </div>
+                        </div> -->
                       </td>
                     </tr>
                   <?php endforeach; ?>

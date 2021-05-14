@@ -149,7 +149,7 @@
     {
       // Jalankan query
       $query = $this->db
-        ->where('pembeli.id', $id)
+        ->where('pembeli.pid', $id)
         ->update('pembeli', $data);
       
       // Return hasil query

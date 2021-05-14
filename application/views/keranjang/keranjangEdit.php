@@ -39,7 +39,7 @@
             <br><br><a href="#modal4"><button name="batal" class="btn light blue lighten-2 waves-effect waves-green">Kembali</button></a>
           </div>
           <div class="input-field col s6 m6 l6 right-align">
-            <br><br><button type="submit" name="submit-order" value="add_keranjang" class="btn light purple lighten-2 waves-effect waves-green">Update Keranjang</button>
+            <br><br><button type="submit" name="submit-update" value="add_keranjang" class="btn light purple lighten-2 waves-effect waves-green">Update Keranjang</button>
             <!-- <br><br><a href="#modal8"><button name="total" class="btn light purple lighten-2 waves-effect waves-green">Tambahkan</button></a> -->
           </div>
         </form>
@@ -52,7 +52,7 @@
             <p style="font-size: 1.2rem;">Apakah kamu yakin mau kembali?</p>
           </div>
           <div class="modal-footer">
-            <a href="<?php echo base_url('keranjang'); ?>" class="modal-close waves-effect waves-green btn-flat">Yakin</a>
+            <a href="<?php echo base_url('keranjang'); ?>" class="modal-close waves-effect waves-green btn light purple lighten-2">Yakin</a>
             <a href="" class="modal-close waves-effect waves-green btn-flat">Tidak Jadi</a>
           </div>
         </div>

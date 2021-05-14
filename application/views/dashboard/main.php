@@ -18,7 +18,7 @@
 
         <div>
             <h2 class="col-12 text-center tm-section-title">Temukan buku untukmu disini!</h2>
-			<p class="col-12 text-center" style="font-size:16px;">Hidup lebih mudah dengan kami yang menyediakan <b style="color:red;">863.891</b> buku <br> yang tersedia dari <b style="color:red;">39.456</b> pengarang dari seluruh dunia</p><br>
+			<p class="col-12 text-center" style="font-size:16px;">Hidup lebih mudah dengan kami yang menyediakan <b style="color:red;">863.891</b><br>buku yang tersedia dari <b style="color:red;">39.456</b> pengarang dari seluruh dunia</p><br>
         </div>
 
         <!-- <div class="tm-paging-links">
@@ -38,9 +38,9 @@
 				<?php $no = 0; foreach($buku as $row): 
 					$harga = number_format($row->harga);
 					?>
-                    <article class="col s12 offset-s1 m4 l3 tm-gallery-item">
+                    <article class="col s12 offset-s1 m6 l4 xl3 tm-gallery-item">
 						<!-- <a href=""> -->
-							<figure class="card purple lighten-4" style="min-height: 820px; max-height: 820px;">
+							<figure class="card purple lighten-4" style="min-height: 900px; max-height: 900px;">
 								<div class="card-image">
 									<!-- <img src="<?php echo base_url('assets/images/') . $row->foto; ; ?>" style="height: 350px;"> -->
 									<a href="<?php echo base_url('keranjang/add/' . $row->id); ?>">
@@ -63,7 +63,7 @@
 									<figcaption class="container">
 										<h3 class="tm-gallery-title"><?php echo $row->judul; ?></h3>
 										<h4 class="tm-gallery-resto"><?php echo $row->pengarang; ?></h4>
-										<p class="tm-gallery-description"><?php echo $row->deskripsi; ?> <br><br><span style="color:blue;">(Ketuk gambar untuk membeli)</span></p>
+										<p class="tm-gallery-description"><?php echo $row->deskripsi; ?><br><br><span style="color:red;">Stok Buku: <?php echo $row->stock; ?></span><br><br><span style="color:blue;">(Ketuk gambar untuk membeli)</span></p>
 										<p class="tm-gallery-price">Rp. <?php echo $harga; ?></p>
 										<!-- <a href="#">Klik untuk membeli</a> -->
 										<!-- <div class="col s12 m12 l12 left-align">
