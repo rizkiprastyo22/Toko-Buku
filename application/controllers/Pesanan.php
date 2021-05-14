@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Buku extends MY_Controller {
+class Pesanan extends MY_Controller {
 
   public function __construct()
   {

@@ -35,7 +35,7 @@
                       <!-- <td class="center-align"><?php echo $row->stock; ?></td>
                       <td class="center-align">Rp. <?php echo $harga; ?></td> -->
                       <td class="center-align">
-                        <a href="<?php echo base_url('topup/edit/' . $row->tid); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Edit Data"><i class="material-icons">edit</i></a>
+                        <a href="<?php echo base_url('topup/edit/' . $row->tid); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Konfirmasi"><i class="material-icons">edit</i></a>
                         <a href="#modal1" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Delete Data"><i class="material-icons">delete</i></a>
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal">
