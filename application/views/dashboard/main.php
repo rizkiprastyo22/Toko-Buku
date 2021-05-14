@@ -38,7 +38,7 @@
 				<?php $no = 0; foreach($buku as $row): 
 					$harga = number_format($row->harga);
 					?>
-                    <article class="col s12 offset-s1 m6 l4 tm-gallery-item">
+                    <article class="col s12 offset-s1 m4 l3 tm-gallery-item">
 						<!-- <a href=""> -->
 							<figure class="card purple lighten-4" style="min-height: 820px; max-height: 820px;">
 								<div class="card-image">

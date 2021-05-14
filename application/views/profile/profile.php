@@ -23,7 +23,7 @@
                   </div>
                 </div>
               <?php endif; ?>
-              <?php if($message = $this->session->flashdata('message_profile')): ?>
+              <?php if($message = $this->session->flashdata('message')): ?>
                 <div class="col s12">
                   <div class="card-panel <?php echo ($message['status']) ? 'green' : 'red'; ?>">
                     <span class="white-text"><?php echo $message['message']; ?></span>
@@ -31,8 +31,11 @@
                 </div>
               <?php endif; ?>
               <div id="basic-form">
+                <!-- <div class="input-field col s12 m12 l12">
+                    <h5 class="center-align">Saldo Ubur Cash Anda</h5>
+                </div> -->
                 <div class="input-field col s12 m12 l12">
-                    <h3 class="center-align">Rp. <?php echo $this->session->userdata('saldo'); ?></h3>
+                    <h3 class="center-align">Rp. <?php echo number_format($this->session->userdata('saldo')); ?></h3>
                 </div>
                 <div class="input-field col s12 m12 l12 center-align">
                   <!-- <a href="<?php echo base_url('profile/edit/' . $this->session->userdata('id')); ?>" class="btn purple lighten-2 waves-effect waves-green">Top Up Sekarang</a><br><br> -->

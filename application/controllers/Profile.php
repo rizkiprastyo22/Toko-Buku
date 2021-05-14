@@ -166,7 +166,7 @@ class Profile extends MY_Controller {
           if ($this->form_validation->run() === TRUE) {
     
             $data = array(
-              'email' => $this->session->userdata('id'),
+              't_email' => $this->session->userdata('id'),
               'topup' => $this->input->post('topup')
             );
     
@@ -174,7 +174,7 @@ class Profile extends MY_Controller {
             $query = $this->model_users->topup($data);
     
               // cek jika query berhasil
-              if ($query) $message = array('status' => true, 'message' => 'Permohonan Top Up berhasil! Silakan transfer ke Bank BCA dengan Nomor Rekening 6482756254 a/n Toko Ubur Ubur dan konfirmasi melalui Direct Message ke IG: @tokoubur dengan menyertakan Email dan Screenshot Transaksi');
+              if ($query) $message = array('status' => true, 'message' => 'Permohonan Top Up berhasil!'."\n".'Silakan transfer ke Bank BCA dengan Nomor Rekening 6482756254 a/n Toko Ubur Ubur'."\n".'dan konfirmasi melalui Direct Message ke IG: @tokoubur'."\n".'dengan menyertakan Nama Email dan Screenshot Bukti Transaksi kamu ya');
               else $message = array('status' => true, 'message' => 'Permohonan Top Up gagal!');
     
               // simpan message sebagai session
@@ -210,7 +210,7 @@ class Profile extends MY_Controller {
       if ($this->form_validation->run() === TRUE) {
 
         $data = array(
-          'email' => $this->input->post('email'),
+          't_email' => $this->input->post('email'),
           'topup' => $this->input->post('topup')
         );
 

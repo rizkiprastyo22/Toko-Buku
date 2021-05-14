@@ -45,7 +45,6 @@
 
         $query2 = $this->db
         ->from('users')
-        // ->join('riwayat', 'riwayat.email = users.id')
         ->where('id', $data['email'])
         ->get()->row();
 
@@ -54,7 +53,6 @@
         // Jalankan query
         $query3 = $this->db
         ->from('users')
-        // ->join('riwayat', 'riwayat.email = users.id')
         ->where('id', $data['email'])
         ->set('saldo', $akhir)
         ->update('users');
@@ -99,12 +97,16 @@
       return $query;
     }
 
-    public function delete($id)
+    public function delete($id, $gagal)
     {
       // Jalankan query
       $query = $this->db
-        ->where('id', $id)
+        ->where('tid', $id)
         ->delete($this->table);
+
+      // Jalankan query
+      $query1 = $this->db
+      ->insert('riwayat', $gagal);
       
       // Return hasil query
       return $query;

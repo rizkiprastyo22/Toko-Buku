@@ -43,7 +43,7 @@
                             <h4 style="font-size: 1.5rem;">Konfirmasi Delete Permohonan</h4>
                           </div>
                           <div class="modal-content">
-                            <p style="font-size: 1.2rem;">Apakah kamu yakin mau menghapus permohonan?</p>
+                            <p style="font-size: 1.2rem;">Apakah kamu yakin pengguna telah membatalkan permohonan?</p>
                           </div>
                           <div class="modal-footer">
                             <a href="<?php echo base_url('topup/delete/' . $row->tid); ?>" class="modal-close waves-effect waves-green btn-flat">Yakin</a>

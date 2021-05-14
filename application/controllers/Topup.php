@@ -46,7 +46,7 @@ class Topup extends MY_Controller {
       if ($this->form_validation->run() === TRUE) {
 
         $data = array(
-            'email' => $this->input->post('email'),
+            'r_email' => $this->input->post('email'),
             'topup' => $this->input->post('topup'),
             'status' => $this->input->post('status')
         );
@@ -84,13 +84,19 @@ class Topup extends MY_Controller {
   public function delete($id)
   {
     // Ambil data topup dari database
-    $topup = $this->model_topup->get_where(array('id' => $id))->row();
+    $topup = $this->model_topup->get_where(array('tid' => $id))->row();
 
     // Jika data topup tidak ada maka show 404
     if (!$topup) show_404();
 
+    $gagal = array(
+      'r_email' => $topup->{'t_email'},
+      'topup' => $topup->{'topup'},
+      'status' => 'gagal'
+    );
+
     // Jalankan function delete pada model_topup
-    $query = $this->model_topup->delete($id);
+    $query = $this->model_topup->delete($id, $gagal);
 
     // cek jika query berhasil
     if ($query) $message = array('status' => true, 'message' => 'Berhasil menghapus topup');

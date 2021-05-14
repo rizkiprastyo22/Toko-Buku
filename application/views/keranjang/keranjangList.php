@@ -59,8 +59,8 @@
                     <tr>
                     <td></td>
                     <td></td>
-                    <td class="center-align">Ubur Cash Anda: Rp. <strong>0</strong></td>
-                    <td class="center-align">Total Biaya: Rp. <strong><?php echo number_format($total); ?></strong></td>
+                    <td class="center-align">Ubur Cash Anda:<br>Rp. <strong>0</strong></td>
+                    <td class="center-align">Total Biaya:<br>Rp. <strong><?php echo number_format($total); ?></strong></td>
                     <td class="center-align"><button type="submit" name="submit" value="add_belanja" class="btn purple lighten-2 waves-effect waves-green">Bayar</button></td>
                     </tr>
               </tbody>
