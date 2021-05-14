@@ -52,12 +52,20 @@
 
     <?php if($this->session->userdata('level') !== 'administrator'): ?>
       <li>
+        <a class="waves-effect" href="<?php echo base_url('keranjang'); ?>"><i class="material-icons">person</i>Keranjang</a>
+      </li>
+
+      <li>
+          <div class="divider"></div>
+      </li>
+      
+      <li>
         <a class="waves-effect" href="<?php echo base_url('profile'); ?>"><i class="material-icons">person</i>Profil</a>
       </li>
 
       <li>
           <div class="divider"></div>
-        </li>
+      </li>
     <?php endif; ?>
 
     <li>

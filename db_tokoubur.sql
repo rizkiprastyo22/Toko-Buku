@@ -63,3 +63,13 @@ CREATE TABLE `pembeli`
    FOREIGN KEY (judul) REFERENCES buku(id),
    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+SELECT *
+FROM pembeli
+   INNER JOIN
+   users
+   ON pembeli.email = users.id
+   INNER JOIN
+   buku
+   ON pembeli.judul = buku.id
+   WHERE pembeli.transaksi IS NULL;

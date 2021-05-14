@@ -16,9 +16,10 @@ class Keranjang extends MY_Controller {
   public function index()
   {
     // Data untuk page index
-    $data['pageTitle'] = 'Buku';
-    $data['buku'] = $this->model_buku->get()->result();
-    $data['pageContent'] = $this->load->view('buku/bukuList', $data, TRUE);
+    $data['pageTitle'] = 'Keranjang';
+    $data['keranjang'] = $this->model_buku->tampil_keranjang(array('email' => $this->session->userdata('id'), 'transaksi' => NULL));
+    $data['total'] = $this->model_buku->total_biaya(array('email' => $this->session->userdata('id'), 'transaksi' => NULL));
+    $data['pageContent'] = $this->load->view('keranjang/keranjangList', $data, TRUE);
 
     // Jalankan view template/layout
     $this->load->view('template/layout', $data);

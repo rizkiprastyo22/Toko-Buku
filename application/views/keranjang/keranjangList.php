@@ -3,7 +3,7 @@
     <div class="col s12">
       <div class="card">
         <div class="card-content purple lighten-2 white-text">
-          <span class="card-title">Keranjang belanja</span>
+          <span class="card-title"><?php echo $pageTitle; ?></span>
           <a href="<?php echo base_url('keranjang/add'); ?>" class="btn-floating right halfway-fab waves-effect waves-light purple lighten-4 tooltipped" data-position="top" data-tooltip="Tambah Data"><i class="material-icons">add</i></a>
         </div>
         <div class="card-content">
@@ -21,22 +21,22 @@
                   <th>Judul</th>
                   <!-- <th>Pengarang</th> -->
                   <!-- <th class="center-align">Stock</th> -->
-                  <th class="center-align">Harga</th>
                   <th class="center-align">Jumlah Pembelian</th>
+                  <th class="center-align">Harga Total</th>
                   <th class="center-align">Pilihan</th>
                   </tr>
               </thead>
               <tbody>
-                  <?php $no = 0; foreach($buku as $row): 
-                    $harga = number_format($row->harga);
+                  <?php $no = 0; foreach($keranjang as $row): 
+                    $harga = number_format(($row->harga)*($row->jumlah));
                     ?>
                     <tr>
                       <td><?php echo ++$no; ?></td>
                       <td><?php echo $row->judul; ?></td>
                       <!-- <td><?php echo $row->pengarang; ?></td> -->
                       <!-- <td class="center-align"><?php echo $row->stock; ?></td> -->
+                      <td class="center-align"><?php echo $row->jumlah; ?></td>
                       <td class="center-align">Rp. <?php echo $harga; ?></td>
-                      <td class="center-align">1</td>
                       <td class="center-align">
                         <!-- <a href="<?php echo base_url('buku/edit/' . $row->id); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Edit Data"><i class="material-icons">edit</i></a> -->
                         <a href="#modal1" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Delete Data"><i class="material-icons">delete</i></a>
@@ -56,6 +56,12 @@
                       </td>
                     </tr>
                   <?php endforeach; ?>
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="center-align">Total Biaya: Rp. <?php echo number_format($total); ?></td>
+                    </tr>
               </tbody>
           </table>
         </div>

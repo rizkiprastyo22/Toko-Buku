@@ -62,4 +62,41 @@
       // Return hasil query
       return $query;
     }  
+
+    public function tampil_keranjang($where)
+    {
+      // Jalankan query
+      $query = $this->db
+        ->from('pembeli')
+        // ->join('users', 'pembeli.email = users.id')
+        ->join('buku', 'pembeli.judul = buku.id')
+        ->where($where)
+        ->get();
+
+      // Return hasil query
+      return $query->result();
+    }
+
+    public function total_biaya($where)
+    {
+      // Jalankan query
+      $query = $this->db
+        ->from('pembeli')
+        // ->join('users', 'pembeli.email = users.id')
+        ->join('buku', 'pembeli.judul = buku.id')
+        ->where($where)
+        ->get()
+        ->result();
+
+        $total=0;
+        $harga=0;
+        foreach($query as $row)
+        {
+          $harga = ($row->harga)*($row->jumlah);
+          $total += $harga;
+        }
+
+      // Return hasil query
+      return $total;
+    }
   }
