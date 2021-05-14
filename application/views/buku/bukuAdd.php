@@ -23,7 +23,7 @@
             </div>
           <?php endif; ?>
           <div class="input-field col s12 m6">
-              <input id="nisn" name="nisn" type="text" value="<?php echo set_value('nisn'); ?>">
+              <input id="nisn" name="nisn" type="number" value="<?php echo set_value('nisn'); ?>">
               <label for="nisn" class="">NISN</label>
           </div>
           <div class="input-field col s12 m6">

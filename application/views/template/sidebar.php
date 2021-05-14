@@ -34,6 +34,22 @@
       <li>
         <div class="divider"></div>
       </li>
+
+      <li>
+        <a class="waves-effect" href="<?php echo base_url('pesanan'); ?>"><i class="material-icons">article</i>Pesanan</a>
+      </li>
+      
+      <li>
+        <div class="divider"></div>
+      </li>
+
+      <li>
+        <a class="waves-effect" href="<?php echo base_url('topup'); ?>"><i class="material-icons">article</i>Top Up</a>
+      </li>
+      
+      <li>
+        <div class="divider"></div>
+      </li>
     <?php endif; ?>
 
     <?php if($this->session->userdata('level') === 'administrator'): ?>

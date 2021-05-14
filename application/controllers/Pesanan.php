@@ -14,14 +14,14 @@ class Buku extends MY_Controller {
     $this->isAdmin();
 
     // Load model Buku
-    $this->load->model('model_buku');
+    $this->load->model('model_pembeli');
   }
 
   public function index()
   {
     // Data untuk page index
     $data['pageTitle'] = 'Buku';
-    $data['buku'] = $this->model_buku->get()->result();
+    $data['buku'] = $this->model_pembeli->get()->result();
     $data['pageContent'] = $this->load->view('buku/bukuList', $data, TRUE);
 
     // Jalankan view template/layout
@@ -137,8 +137,8 @@ class Buku extends MY_Controller {
           'foto' => $this->input->post('foto')
         );
 
-        // Jalankan function insert pada model_buku
-        $query = $this->model_buku->insert($data);
+        // Jalankan function insert pada model_pembeli
+        $query = $this->model_pembeli->insert($data);
 
         // if(isset($_POST['submit_email'])){
           // $email = $this->input->post('email');
@@ -211,6 +211,9 @@ class Buku extends MY_Controller {
       // Mengatur pesan error validasi data
       $this->form_validation->set_message('required', '%s tidak boleh kosong!');
 
+      // Mengatur pesan error validasi data
+      $this->form_validation->set_message('required', '%s tidak boleh kosong!');
+
       // Jika foto diganti jalankan blok kode ini
       if (!empty($_FILES['foto2']['name'])) {
         // Konfigurasi library upload codeigniter
@@ -241,8 +244,8 @@ class Buku extends MY_Controller {
           'foto' => $this->input->post('foto')
         );
 
-        // Jalankan function insert pada model_buku
-        $query = $this->model_buku->update($id, $data);
+        // Jalankan function insert pada model_pembeli
+        $query = $this->model_pembeli->update($id, $data);
 
         // cek jika query berhasil
         if ($query) $message = array('status' => true, 'message' => 'Berhasil memperbarui buku');
@@ -257,7 +260,7 @@ class Buku extends MY_Controller {
     }
     
     // Ambil data buku dari database
-    $buku = $this->model_buku->get_where(array('id' => $id))->row();
+    $buku = $this->model_pembeli->get_where(array('id' => $id))->row();
 
     // Jika data buku tidak ada maka show 404
     if (!$buku) show_404();
@@ -274,13 +277,13 @@ class Buku extends MY_Controller {
   public function delete($id)
   {
     // Ambil data buku dari database
-    $buku = $this->model_buku->get_where(array('id' => $id))->row();
+    $buku = $this->model_pembeli->get_where(array('id' => $id))->row();
 
     // Jika data buku tidak ada maka show 404
     if (!$buku) show_404();
 
-    // Jalankan function delete pada model_buku
-    $query = $this->model_buku->delete($id);
+    // Jalankan function delete pada model_pembeli
+    $query = $this->model_pembeli->delete($id);
 
     // cek jika query berhasil
     if ($query) $message = array('status' => true, 'message' => 'Berhasil menghapus buku');

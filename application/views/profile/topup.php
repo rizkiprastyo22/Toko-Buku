@@ -24,7 +24,7 @@
           
             <div class="input-field col s12 m12 l12">
                 <input id="email" readonly name="email" type="text" value="<?php echo $this->session->userdata('email'); ?>">
-                <label for="email" class="">Email</label>
+                <label for="email" class="">ID Email</label>
             </div>
             <div class="input-field col s12 m12 l12">
                 <input id="saldo" readonly name="saldo" type="number" value="<?php echo $this->session->userdata('saldo'); ?>">

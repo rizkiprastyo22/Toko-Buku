@@ -174,7 +174,7 @@ class Profile extends MY_Controller {
             $query = $this->model_users->topup($data);
     
               // cek jika query berhasil
-              if ($query) $message = array('status' => true, 'message' => 'Permohonan Top Up berhasil! Silakan transfer ke Bank BCA dengan Nomor Rekening 6482756254 a/n Toko Ubur Ubur dan konfirmasi melalui Direct Message ke IG: @tokoubur');
+              if ($query) $message = array('status' => true, 'message' => 'Permohonan Top Up berhasil! Silakan transfer ke Bank BCA dengan Nomor Rekening 6482756254 a/n Toko Ubur Ubur dan konfirmasi melalui Direct Message ke IG: @tokoubur dengan menyertakan Email dan Screenshot Transaksi');
               else $message = array('status' => true, 'message' => 'Permohonan Top Up gagal!');
     
               // simpan message sebagai session

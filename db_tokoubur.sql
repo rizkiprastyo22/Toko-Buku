@@ -74,6 +74,22 @@ CREATE TABLE `topup`
    `id` INT(11) NOT NULL AUTO_INCREMENT,
    `email` INT(11),
    `topup` INT(11),
+   `transaksi` enum('diproses') NOT NULL DEFAULT 'diproses',
+   FOREIGN KEY (email) REFERENCES users(id),
+   PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+
+-- ----------------------------
+-- Table structure for data pembeli
+-- ----------------------------
+DROP TABLE IF EXISTS `riwayat`;
+CREATE TABLE `riwayat`
+(
+   `rid` INT(11) NOT NULL AUTO_INCREMENT,
+   `email` INT(11),
+   `topup` INT(11),
+   `status` enum('berhasil','gagal'),
    FOREIGN KEY (email) REFERENCES users(id),
    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;

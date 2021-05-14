@@ -23,7 +23,7 @@
           <?php endif; ?>
           
           <div class="input-field col s12 m6">
-              <input id="nisn" disabled name="nisn" type="number" value="<?php echo $buku->nisn; ?>">
+              <input id="nisn" disabled name="nisn" type="text" value="<?php echo $buku->nisn; ?>">
               <label for="mitra" class="">NISN</label>
           </div>
           <div class="input-field col s12 m6">

@@ -12,18 +12,6 @@
       return $query;
     }
 
-    public function keranjang(){
-      // Jalankan query
-      $query = $this->db
-      ->from('promo')
-      ->join('users', 'users.id = promo.mitra')
-      ->where('active', 'aktif')
-      ->get();
-
-      // Return hasil query
-      return $query->result();
-    }
-
     public function get_where($where)
     {
       // Jalankan query
