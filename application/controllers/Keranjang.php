@@ -115,7 +115,7 @@ class Keranjang extends MY_Controller {
     }
     
     // Ambil data buku dari database
-    $keranjang = $this->model_buku->get_where_item($id);
+    $keranjang = $this->model_buku->get_where_item($id)->row();
 
     // Jika data keranjang tidak ada maka show 404
     if (!$keranjang) show_404();
@@ -129,10 +129,10 @@ class Keranjang extends MY_Controller {
     $this->load->view('template/layout', $data);
   }
 
-  public function delete($id)
+  public function delete($id = null)
   {
     // Ambil data keranjang dari database
-    $keranjang = $this->model_buku->get_where_item($id);
+    $keranjang = $this->model_buku->get_where_keranjang($id);
 
     // Jika data keranjang tidak ada maka show 404
     if (!$keranjang) show_404();

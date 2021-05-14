@@ -28,7 +28,10 @@ class Auth extends CI_Controller
       $userData = array(
         'id' => $query->id,
         'nama' => $query->nama,
+        'alamat' => $query->alamat,
+        'no_telp' => $query->no_telp,
         'email' => $query->email,
+        'saldo' => $query->saldo,
         'level' => $query->level,
         'active' => $query->active,
         'logged_in' => TRUE

@@ -85,7 +85,7 @@
         ->from('pembeli')
         // ->join('users', 'pembeli.email = users.id')
         ->join('buku', 'pembeli.judul = buku.id')
-        ->where('pembeli.id', $where)
+        ->where('pembeli.pid', $where)
         ->get();
 
       // Return hasil query
@@ -100,12 +100,27 @@
         ->from('pembeli')
         // ->join('users', 'pembeli.email = users.id')
         ->join('buku', 'pembeli.judul = buku.id')
-        ->where('pembeli.id', $where)
+        ->where('pembeli.pid', $where)
         ->get();
 
       // Return hasil query
-      return $query->row();
+      return $query;
     }
+
+    // public function get_where_barang($where)
+    // {
+    //   // Jalankan query
+    //   $query = $this->db
+    //     // ->select('buku.judul','pembeli.jumlah','buku.harga')
+    //     ->from('pembeli')
+    //     // ->join('users', 'pembeli.email = users.id')
+    //     ->join('buku', 'pembeli.judul = buku.id')
+    //     ->where('pembeli.id', $where)
+    //     ->get();
+
+    //   // Return hasil query
+    //   return $query;
+    // }
 
     public function total_biaya($where)
     {
@@ -145,7 +160,7 @@
     {
       // Jalankan query
       $query = $this->db
-        ->where('pembeli.id', $id)
+        ->where('pembeli.pid', $id)
         ->delete('pembeli');
       
       // Return hasil query

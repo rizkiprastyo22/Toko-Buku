@@ -29,6 +29,15 @@
       return $query;        
     }
 
+    public function topup($data)
+    {
+      // Jalankan query
+      $query = $this->db->insert('topup', $data);
+
+      // Return hasil query
+      return $query;
+    }
+
     public function get()
     {
       // Jalankan query
