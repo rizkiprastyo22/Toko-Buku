@@ -77,6 +77,36 @@
       return $query->result();
     }
 
+    public function get_where_keranjang($where)
+    {
+      // Jalankan query
+      $query = $this->db
+        // ->select('buku.judul','pembeli.jumlah','buku.harga')
+        ->from('pembeli')
+        // ->join('users', 'pembeli.email = users.id')
+        ->join('buku', 'pembeli.judul = buku.id')
+        ->where('pembeli.id', $where)
+        ->get();
+
+      // Return hasil query
+      return $query->result();
+    }
+
+    public function get_where_item($where)
+    {
+      // Jalankan query
+      $query = $this->db
+        // ->select('buku.judul','pembeli.jumlah','buku.harga')
+        ->from('pembeli')
+        // ->join('users', 'pembeli.email = users.id')
+        ->join('buku', 'pembeli.judul = buku.id')
+        ->where('pembeli.id', $where)
+        ->get();
+
+      // Return hasil query
+      return $query->row();
+    }
+
     public function total_biaya($where)
     {
       // Jalankan query
@@ -98,5 +128,27 @@
 
       // Return hasil query
       return $total;
+    }
+
+    public function update_keranjang($id, $data)
+    {
+      // Jalankan query
+      $query = $this->db
+        ->where('pembeli.id', $id)
+        ->update('pembeli', $data);
+      
+      // Return hasil query
+      return $query;
+    }
+
+    public function delete_keranjang($id)
+    {
+      // Jalankan query
+      $query = $this->db
+        ->where('pembeli.id', $id)
+        ->delete('pembeli');
+      
+      // Return hasil query
+      return $query;
     }
   }

@@ -22,47 +22,25 @@
             </div>
           <?php endif; ?>
           
-          <div class="input-field col s12 m6">
-              <input id="nisn" disabled name="nisn" type="text" value="<?php echo $buku->nisn; ?>">
-              <label for="mitra" class="">NISN</label>
-          </div>
-          <div class="input-field col s12 m6">
-              <input id="judul" disabled name="judul" type="text" value="<?php echo $buku->judul; ?>">
+          <!-- <?php $jumlah = 0; $total=0;?> -->
+          <div class="input-field col s12 m12 l12">
+              <input id="judul" readonly name="judul" type="text" value="<?php echo $keranjang->judul; ?>">
               <label for="judul" class="">Judul</label>
           </div>
-          <div class="input-field col s12 m6">
-              <input id="pengarang" disabled name="pengarang" type="text" value="<?php echo $buku->pengarang; ?>">
-              <label for="pengarang" class="">Pengarang</label>
+          <div class="input-field col s12 m12 l12">
+              <input id="jumlah" name="jumlah" type="number" value="<?php echo $keranjang->jumlah; ?>">
+              <label for="jumlah" class="">Jumlah Pembelian</label>
           </div>
-          <div class="input-field col s12 m6">
-              <input id="stock" name="stock" type="number" value="<?php echo $buku->stock; ?>">
-              <label for="stock" class="">Stok</label>
-          </div>
-          <div class="input-field col s12 m6">
-              <input id="harga" name="harga" type="number" value="<?php echo $buku->harga; ?>">
-              <label for="harga" class="">Harga</label>
-          </div>
-          <div class="input-field col s12 m6">
-              <input id="deskripsi" name="deskripsi" type="text" value="<?php echo $buku->deskripsi; ?>">
-              <label for="deskripsi" class="">Deskripsi Singkat (1 kalimat):</label>
-          </div>
-          <div class="input-field file-field col s12 m12 l12">
-                <div class="btn purple lighten-2">
-                  <span>Foto Buku</span>
-                  <input type="file" name="foto2">
-                </div>
-                <div class="file-path-wrapper">
-                  <input class="file-path validate" name="foto" type="text" accept="image/png, image/jpeg" value="<?php echo $buku->foto; ?>">
-                </div>
-          </div>
-          <div class="col s12 m12 l12 left-align">
-            Format Upload Gambar (tanpa spasi): <br><span style="color:blue;">JudulBuku_FotoKeberapa</span><br>(Misal: HW_NG_8)<br><span style="color:red;">*nilai foto keberapa harus +1 dari file sebelumnya</span>
+          <div class="input-field col s12 m12 l12">
+              <input id="harga" disabled name="harga" type="number" value="<?php echo $keranjang->harga; ?>">
+              <label for="harga" class="">Harga Satuan</label>
           </div>
           <div class="input-field col s6 m6 l6 left-align">
             <br><br><a href="#modal4"><button name="batal" class="btn light blue lighten-2 waves-effect waves-green">Kembali</button></a>
           </div>
           <div class="input-field col s6 m6 l6 right-align">
-            <br><br><button type="submit" name="submit-buku" value="<?php echo $buku->id; ?>" class="btn purple lighten-2 waves-effect waves-green">Simpan</button>
+            <br><br><button type="submit" name="submit-order" value="add_keranjang" class="btn light purple lighten-2 waves-effect waves-green">Update Keranjang</button>
+            <!-- <br><br><a href="#modal8"><button name="total" class="btn light purple lighten-2 waves-effect waves-green">Tambahkan</button></a> -->
           </div>
         </form>
         <!-- Modal Structure -->
@@ -74,7 +52,7 @@
             <p style="font-size: 1.2rem;">Apakah kamu yakin mau kembali?</p>
           </div>
           <div class="modal-footer">
-            <a href="<?php echo base_url('buku'); ?>" class="modal-close waves-effect waves-green btn-flat">Yakin</a>
+            <a href="<?php echo base_url('keranjang'); ?>" class="modal-close waves-effect waves-green btn-flat">Yakin</a>
             <a href="" class="modal-close waves-effect waves-green btn-flat">Tidak Jadi</a>
           </div>
         </div>

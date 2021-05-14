@@ -82,79 +82,48 @@ class Keranjang extends MY_Controller {
   public function edit($id = null)
   {
     // Jika form di submit jalankan blok kode ini
-    if ($this->input->post('submit-buku')) {
+    if ($this->input->post('submit-update')) {
 
       // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
-      $this->form_validation->set_rules('stock', 'Stok', 'required');
-
-      // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
-      $this->form_validation->set_rules('harga', 'Harga', 'required');
-
-      // Mengatur pesan error validasi data
-      $this->form_validation->set_message('required', '%s tidak boleh kosong!');
-
-      // Mengatur pesan error validasi data
-      $this->form_validation->set_message('required', '%s tidak boleh kosong!');
-
-      // Jika foto diganti jalankan blok kode ini
-      if (!empty($_FILES['foto2']['name'])) {
-        // Konfigurasi library upload codeigniter
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = 2000;
-        $config['file_name'] = $this->input->post('foto');
-
-        // Load library upload
-        $this->load->library('upload', $config);
-        
-        // Jika terdapat error pada proses upload maka exit
-        if (!$this->upload->do_upload('foto2')) {
-            exit($this->upload->display_errors());
-        }
-        else{
-          $data['foto2'] = $this->upload->data()['file_name'];
-        }
-      }
+        // # required = tidak boleh kosong
+        // # min_length[5] = password harus terdiri dari minimal 5 karakter
+        $this->form_validation->set_rules('jumlah', 'Jumlah Pembelian', 'required');
+  
+        // Mengatur pesan error validasi data
+        $this->form_validation->set_message('required', '%s tidak boleh kosong!');
 
       // Jalankan validasi jika semuanya benar maka lanjutkan
       if ($this->form_validation->run() === TRUE) {
 
         $data = array(
-          'stock' => $this->input->post('stock'),
-          'harga' => $this->input->post('harga'),
-          'deskripsi' => $this->input->post('deskripsi'),
-          'foto' => $this->input->post('foto')
+          'jumlah' => $this->input->post('jumlah')
         );
 
         // Jalankan function insert pada model_buku
-        $query = $this->model_buku->update($id, $data);
+        $query = $this->model_buku->update_keranjang($id, $data);
 
         // cek jika query berhasil
-        if ($query) $message = array('status' => true, 'message' => 'Berhasil memperbarui buku');
-        else $message = array('status' => true, 'message' => 'Gagal memperbarui buku');
+        if ($query) $message = array('status' => true, 'message' => 'Berhasil memperbarui keranjang');
+        else $message = array('status' => true, 'message' => 'Gagal memperbarui keranjang');
 
         // simpan message sebagai session
         $this->session->set_flashdata('message', $message);
 
         // refresh page
-        redirect('buku/edit/'.$id, 'refresh');
+        redirect('keranjang/edit/'.$id, 'refresh');
 			} 
     }
     
     // Ambil data buku dari database
-    $buku = $this->model_buku->get_where(array('id' => $id))->row();
+    $keranjang = $this->model_buku->get_where_item($id);
 
-    // Jika data buku tidak ada maka show 404
-    if (!$buku) show_404();
+    // Jika data keranjang tidak ada maka show 404
+    if (!$keranjang) show_404();
 
-    // Data untuk page buku/add
-    $data['pageTitle'] = 'Edit Data Buku';
-    $data['buku'] = $buku;
-    $data['pageContent'] = $this->load->view('buku/bukuEdit', $data, TRUE);
+    // Data untuk page keranjang/add
+    $data['pageTitle'] = 'Edit Data Keranjang';
+    $data['keranjang'] = $keranjang;
+    $data['pageContent'] = $this->load->view('keranjang/keranjangEdit', $data, TRUE);
 
     // Jalankan view template/layout
     $this->load->view('template/layout', $data);
@@ -162,14 +131,14 @@ class Keranjang extends MY_Controller {
 
   public function delete($id)
   {
-    // Ambil data buku dari database
-    $buku = $this->model_buku->get_where(array('id' => $id))->row();
+    // Ambil data keranjang dari database
+    $keranjang = $this->model_buku->get_where_item($id);
 
-    // Jika data buku tidak ada maka show 404
-    if (!$buku) show_404();
+    // Jika data keranjang tidak ada maka show 404
+    if (!$keranjang) show_404();
 
     // Jalankan function delete pada model_buku
-    $query = $this->model_buku->delete($id);
+    $query = $this->model_buku->delete_keranjang($id);
 
     // cek jika query berhasil
     if ($query) $message = array('status' => true, 'message' => 'Berhasil menghapus buku');
@@ -179,6 +148,6 @@ class Keranjang extends MY_Controller {
     $this->session->set_flashdata('message', $message);
 
     // refresh page
-    redirect('buku', 'refresh');
+    redirect('keranjang', 'refresh');
   }
 }

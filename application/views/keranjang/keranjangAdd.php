@@ -36,7 +36,7 @@
               <label for="jumlah" class="">Jumlah Pembelian</label>
           </div>
           <div class="input-field col s12 m6">
-              <input id="harga" readonly name="harga" type="number" value="<?php echo $buku->harga; ?>">
+              <input id="harga" disabled name="harga" type="number" value="<?php echo $buku->harga; ?>">
               <label for="harga" class="">Harga Satuan</label>
           </div>
           <div class="input-field col s6 m6 l6 left-align">
@@ -46,7 +46,7 @@
             <br><br><button type="submit" name="submit-order" value="add_keranjang" class="btn light purple lighten-2 waves-effect waves-green">Tambah Keranjang</button>
             <!-- <br><br><a href="#modal8"><button name="total" class="btn light purple lighten-2 waves-effect waves-green">Tambahkan</button></a> -->
           </div>
-          </form>
+        </form>
           <!-- Modal Structure -->
           <!-- <div id="modal8" class="modal center-align" style="width:320px;">
               <div class="modal-content purple lighten-2 white-text">

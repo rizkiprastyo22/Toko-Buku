@@ -44,7 +44,7 @@
                             <h4 style="font-size: 1.5rem;">Konfirmasi Delete Buku</h4>
                           </div>
                           <div class="modal-content">
-                            <p style="font-size: 1.2rem;">Apakah kamu yakin mau menghapus buku "<?php echo $row->judul; ?>"?</p>
+                            <p style="font-size: 1.2rem;">Apakah kamu yakin mau menghapus buku?</p>
                           </div>
                           <div class="modal-footer">
                             <a href="<?php echo base_url('buku/delete/' . $row->id); ?>" class="modal-close waves-effect waves-green btn-flat">Yakin</a>
