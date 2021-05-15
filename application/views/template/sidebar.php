@@ -50,6 +50,14 @@
       <li>
         <div class="divider"></div>
       </li>
+
+      <li>
+        <a class="waves-effect" href="<?php echo base_url('riwayat'); ?>"><i class="material-icons">article</i>Riwayat</a>
+      </li>
+      
+      <li>
+        <div class="divider"></div>
+      </li>
       
       <li>
         <a class="waves-effect" href="<?php echo base_url('users'); ?>"><i class="material-icons">people</i>Users</a>
@@ -63,6 +71,22 @@
     <?php if($this->session->userdata('level') !== 'administrator'): ?>
       <li>
         <a class="waves-effect" href="<?php echo base_url('pesanan'); ?>"><i class="material-icons">person</i>Pesanan</a>
+      </li>
+
+      <li>
+          <div class="divider"></div>
+      </li>
+
+      <li>
+        <a class="waves-effect" href="<?php echo base_url('dikirim'); ?>"><i class="material-icons">person</i>Dikirim</a>
+      </li>
+
+      <li>
+          <div class="divider"></div>
+      </li>
+
+      <li>
+        <a class="waves-effect" href="<?php echo base_url('history'); ?>"><i class="material-icons">person</i>Riwayat</a>
       </li>
 
       <li>

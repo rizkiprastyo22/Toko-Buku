@@ -17,7 +17,7 @@ class Pesanan extends MY_Controller {
   {
     // Data untuk page index
     $data['pageTitle'] = 'Pesanan';
-    $data['pesanan'] = $this->model_pesanan->get_order(array('p_email' => $this->session->userdata('id')))->result();
+    $data['pesanan'] = $this->model_pesanan->get_order(array('p_email' => $this->session->userdata('id'), 'p_status' => 'diproses'))->result();
     $data['pageContent'] = $this->load->view('pesanan/pesananList', $data, TRUE);
 
     // Jalankan view template/layout
