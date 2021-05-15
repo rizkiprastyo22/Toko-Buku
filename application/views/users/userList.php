@@ -19,6 +19,7 @@
                       <th>No</th>
                       <th>Nama Lengkap</th>
                       <th>Email</th>
+                      <th>Nomor Telepon</th>
                       <th class="center-align">Status Akun</th>
                       <!-- <th class="center-align">Active</th>
                       <th class="center-align">Last Login</th> -->
@@ -33,6 +34,7 @@
                       <td><?php echo ++$no; ?></td>
                       <td><?php echo $row->nama; ?></td>
                       <td><?php echo $email[0].'<br>@'.$email[1]; ?></td>
+                      <td><?php echo $row->no_telp; ?></td>
                       <td class="center-align"><?php echo ucwords($row->active); ?></td>
                       <!-- <td><?php echo $row->last_login; ?></td> -->
                       <!-- <td class="center-align"><?php echo $row->last_login; ?></td> -->
