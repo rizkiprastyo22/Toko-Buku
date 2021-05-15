@@ -98,9 +98,6 @@ class Pesanan extends MY_Controller {
       // Mengatur pesan error validasi data
       $this->form_validation->set_message('required', '%s tidak boleh kosong!');
 
-      // Mengatur pesan error validasi data
-      $this->form_validation->set_message('required', '%s tidak boleh kosong!');
-
       // Jika foto diganti jalankan blok kode ini
       if (!empty($_FILES['foto2']['name'])) {
         // Konfigurasi library upload codeigniter
