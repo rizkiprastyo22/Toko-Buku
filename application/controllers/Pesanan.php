@@ -41,8 +41,8 @@ class Pesanan extends MY_Controller {
     // Jalankan view template/layout
     $this->load->view('template/layout', $data);
 
-    // Jika form di submit jalankan blok kode ini
-    if (($this->input->post('submit-konfirmasi')) && (($this->session->userdata('saldo'))>=($buku->harga))) {
+          // Jika form di submit jalankan blok kode ini
+          if (($this->input->post('submit-konfirmasi')) && (($this->session->userdata('saldo'))>=($buku->harga)) && ($buku->stock > 0)) {
 
           $data = array(
             'p_email' => $this->input->post('p_email'),
@@ -72,9 +72,10 @@ class Pesanan extends MY_Controller {
 
           // refresh page
           redirect('pesanan', 'refresh');
-        }
+
+        } elseif($buku->stock == 0) $message = array('status' => false, 'message' => 'Stok habis');
         
-        else $message = array('status' => true, 'message' => 'Saldo tidak cukup');
+        else $message = array('status' => false, 'message' => 'Saldo tidak cukup');
         $this->session->set_flashdata('message', $message);
         redirect('pesanan', 'refresh');
   }

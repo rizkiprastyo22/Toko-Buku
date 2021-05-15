@@ -24,7 +24,8 @@
                   <tr>
                   <th>No</th>
                   <th>Judul</th>
-                  <th class="center-align">Jumlah</th>
+                  <th>Pengarang</th>
+                  <th class="center-align">Harga</th>
                   <th class="center-align">Status Pesanan</th>
                   </tr>
               </thead>
@@ -33,7 +34,8 @@
                     <tr>
                       <td><?php echo ++$no; ?></td>
                       <td><?php echo $row->judul; ?></td>
-                      <td class="center-align"><?php echo $row->p_jumlah; ?></td>
+                      <td><?php echo $row->pengarang; ?></td>
+                      <td class="center-align">Rp. <?php echo number_format($row->harga); ?></td>
                       <td class="center-align"><?php echo ucwords($row->p_status); ?></td>
                     </tr>
                   <?php endforeach; ?>
