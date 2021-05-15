@@ -50,12 +50,6 @@
       <li>
         <div class="divider"></div>
       </li>
-    <?php endif; ?>
-
-    <?php if($this->session->userdata('level') === 'administrator'): ?>
-      <!-- <li>
-        <a class="subheader">Admin</a>
-      </li> -->
       
       <li>
         <a class="waves-effect" href="<?php echo base_url('users'); ?>"><i class="material-icons">people</i>Users</a>
@@ -68,7 +62,7 @@
 
     <?php if($this->session->userdata('level') !== 'administrator'): ?>
       <li>
-        <a class="waves-effect" href="<?php echo base_url('keranjang'); ?>"><i class="material-icons">person</i>Keranjang</a>
+        <a class="waves-effect" href="<?php echo base_url('pesanan'); ?>"><i class="material-icons">person</i>Pesanan</a>
       </li>
 
       <li>

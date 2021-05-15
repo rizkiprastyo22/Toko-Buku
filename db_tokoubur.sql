@@ -94,6 +94,19 @@ CREATE TABLE `riwayat`
    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `pesanan`;
+CREATE TABLE `pesanan`
+(
+   `oid` INT(11) NOT NULL AUTO_INCREMENT,
+   `p_email` INT(11),
+   `p_judul` INT(11),
+   `p_jumlah` INT(11),
+   `p_status` enum('diproses','dikirim', 'selesai') NOT NULL DEFAULT 'diproses',
+   FOREIGN KEY (p_email) REFERENCES users(id),
+   FOREIGN KEY (p_judul) REFERENCES buku(id),
+   PRIMARY KEY (`oid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
 SELECT *
 FROM pembeli
    INNER JOIN

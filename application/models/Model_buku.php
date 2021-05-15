@@ -166,4 +166,30 @@
       // Return hasil query
       return $query;
     }
+
+    // public function tampil_belanja($where)
+    // {
+    //   // Jalankan query
+    //   $query = $this->db
+    //     ->select(pembeli.email)
+    //     ->from('pembeli')
+    //     // ->join('users', 'pembeli.email = users.id')
+    //     ->join('buku', 'pembeli.judul = buku.id')
+    //     ->where($where)
+    //     ->get();
+
+    //   // Return hasil query
+    //   return $query->result();
+    // }
+
+    public function insert_belanja($data)
+    {
+      // Jalankan query
+      $query = $this->db
+      ->insert('pesanan', $data)
+      ->select();
+
+      // Return hasil query
+      return $query;
+    }
   }

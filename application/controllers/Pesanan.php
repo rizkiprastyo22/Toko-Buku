@@ -9,20 +9,16 @@ class Pesanan extends MY_Controller {
     // Cek apakah user sudah login
     $this->cekLogin();
 
-    // Cek apakah user login 
-    // sebagai mitra
-    $this->isAdmin();
-
     // Load model Buku
-    $this->load->model('model_pembeli');
+    $this->load->model('model_pesanan');
   }
 
   public function index()
   {
     // Data untuk page index
-    $data['pageTitle'] = 'Buku';
-    $data['buku'] = $this->model_pembeli->get()->result();
-    $data['pageContent'] = $this->load->view('buku/bukuList', $data, TRUE);
+    $data['pageTitle'] = 'Pesanan';
+    $data['pesanan'] = $this->model_pesanan->get()->result();
+    $data['pageContent'] = $this->load->view('pesanan/pesananList', $data, TRUE);
 
     // Jalankan view template/layout
     $this->load->view('template/layout', $data);
@@ -137,8 +133,8 @@ class Pesanan extends MY_Controller {
           'foto' => $this->input->post('foto')
         );
 
-        // Jalankan function insert pada model_pembeli
-        $query = $this->model_pembeli->insert($data);
+        // Jalankan function insert pada model_pesanan
+        $query = $this->model_pesanan->insert($data);
 
         // if(isset($_POST['submit_email'])){
           // $email = $this->input->post('email');
@@ -244,8 +240,8 @@ class Pesanan extends MY_Controller {
           'foto' => $this->input->post('foto')
         );
 
-        // Jalankan function insert pada model_pembeli
-        $query = $this->model_pembeli->update($id, $data);
+        // Jalankan function insert pada model_pesanan
+        $query = $this->model_pesanan->update($id, $data);
 
         // cek jika query berhasil
         if ($query) $message = array('status' => true, 'message' => 'Berhasil memperbarui buku');
@@ -260,7 +256,7 @@ class Pesanan extends MY_Controller {
     }
     
     // Ambil data buku dari database
-    $buku = $this->model_pembeli->get_where(array('id' => $id))->row();
+    $buku = $this->model_pesanan->get_where(array('id' => $id))->row();
 
     // Jika data buku tidak ada maka show 404
     if (!$buku) show_404();
@@ -277,13 +273,13 @@ class Pesanan extends MY_Controller {
   public function delete($id)
   {
     // Ambil data buku dari database
-    $buku = $this->model_pembeli->get_where(array('id' => $id))->row();
+    $buku = $this->model_pesanan->get_where(array('id' => $id))->row();
 
     // Jika data buku tidak ada maka show 404
     if (!$buku) show_404();
 
-    // Jalankan function delete pada model_pembeli
-    $query = $this->model_pembeli->delete($id);
+    // Jalankan function delete pada model_pesanan
+    $query = $this->model_pesanan->delete($id);
 
     // cek jika query berhasil
     if ($query) $message = array('status' => true, 'message' => 'Berhasil menghapus buku');

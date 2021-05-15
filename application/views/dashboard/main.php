@@ -43,7 +43,7 @@
 							<figure class="card purple lighten-4" style="min-height: 900px; max-height: 900px;">
 								<div class="card-image">
 									<!-- <img src="<?php echo base_url('assets/images/') . $row->foto; ; ?>" style="height: 350px;"> -->
-									<a href="<?php echo base_url('keranjang/add/' . $row->id); ?>">
+									<a href="<?php echo base_url('pesanan/add/' . $row->id); ?>">
 										<img src="<?php echo base_url('assets/images/') . $row->foto; ; ?>" alt="Image" class="img-fluid tm-gallery-img" style="height: 350px;" />
 									</a>
 									<!-- Modal Structure -->
@@ -56,7 +56,7 @@
 											<p style="font-size: 1.2rem;">Apakah kamu yakin?</p>
 										</div>
 										<div class="modal-footer">
-											<a href="<?php echo base_url('keranjang/add/' . $row->id); ?>" class="modal-close waves-effect waves-green btn-flat">Yakin</a>
+											<a href="<?php echo base_url('pesanan/add/' . $row->id); ?>" class="modal-close waves-effect waves-green btn-flat">Yakin</a>
 											<a href="" class="modal-close waves-effect waves-green btn-flat">Tidak Jadi</a>
 										</div>
 									</div> -->
