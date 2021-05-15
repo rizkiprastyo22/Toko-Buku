@@ -2,7 +2,7 @@
     <div class="col s12">
       <div class="card">
         <div class="card-content purple lighten-2 white-text">
-          <span class="card-title">Buku yang sedang dikirim</span>
+          <span class="card-title">Riwayat Pemesanan Buku</span>
         </div>
         <div class="card-content">
         <?php if(validation_errors()): ?>
@@ -19,27 +19,25 @@
               </div>
             </div>
           <?php endif; ?>
-          <table class="bdikirimed highlight">
+          <table class="briwayated highlight">
               <thead>
                   <tr>
                   <th>No</th>
                   <th>Judul Buku</th>
                   <th>Alamat</th>
+                  <th class="center-align">Harga</th>
                   <th class="center-align">Status Pesanan</th>
-                  <th class="center-align">Konfirmasi diterima</th>
                   </tr>
               </thead>
               <tbody>
-                  <?php $no = 0; foreach($dikirim as $row):  
+                  <?php $no = 0; foreach($riwayat as $row):  
                     ?>
                     <tr>
                       <td><?php echo ++$no; ?></td>
                       <td><?php echo $row->judul; ?></td>
                       <td><?php echo $row->alamat; ?></td>
+                      <td class="center-align">Rp. <?php echo number_format($row->harga); ?></td>
                       <td class="center-align"><?php echo ucwords($row->p_status); ?></td>
-                      <td class="center-align">
-                        <a href="<?php echo base_url('dikirim/konfirmasi/' . $row->oid); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Konfirmasi"><i class="material-icons">edit</i></a>
-                      </td>
                     </tr>
                   <?php endforeach; ?>
               </tbody>
