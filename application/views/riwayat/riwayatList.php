@@ -32,9 +32,11 @@
               <thead>
                   <tr>
                   <th>No</th>
+                  <th>Nomor Resi</th>
                   <th>Nama Pemesan</th>
                   <th>Alamat Pemesan</th>
                   <th>Judul Buku</th>
+                  <th class="center-align">Kurir</th>
                   <th class="center-align">Status Pesanan</th>
                   </tr>
               </thead>
@@ -43,9 +45,11 @@
                     ?>
                     <tr>
                       <td><?php echo ++$no; ?></td>
+                      <td><?php echo $row->resi; ?></td>
                       <td><?php echo $row->nama; ?></td>
                       <td><?php echo $row->alamat; ?></td>
                       <td><?php echo $row->judul; ?></td>
+                      <td class="center-align"><?php echo $row->kurir; ?></td>
                       <td class="center-align"><?php echo ucwords($row->p_status); ?></td>
                     </tr>
                   <?php endforeach; ?>

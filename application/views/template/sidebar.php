@@ -36,7 +36,7 @@
       </li>
 
       <li>
-        <a class="waves-effect" href="<?php echo base_url('order'); ?>"><i class="material-icons">article</i>Daftar Pesanan</a>
+        <a class="waves-effect" href="<?php echo base_url('order'); ?>"><i class="material-icons">assignment_ind</i>Daftar Pesanan</a>
       </li>
       
       <li>
@@ -44,7 +44,7 @@
       </li>
 
       <li>
-        <a class="waves-effect" href="<?php echo base_url('topup'); ?>"><i class="material-icons">article</i>Top Up</a>
+        <a class="waves-effect" href="<?php echo base_url('topup'); ?>"><i class="material-icons">credit_card</i>Permohonan Top Up</a>
       </li>
       
       <li>
@@ -52,7 +52,7 @@
       </li>
 
       <li>
-        <a class="waves-effect" href="<?php echo base_url('riwayat'); ?>"><i class="material-icons">article</i>Riwayat</a>
+        <a class="waves-effect" href="<?php echo base_url('riwayat'); ?>"><i class="material-icons">history</i>Riwayat</a>
       </li>
       
       <li>
@@ -70,7 +70,7 @@
 
     <?php if($this->session->userdata('level') !== 'administrator'): ?>
       <li>
-        <a class="waves-effect" href="<?php echo base_url('pesanan'); ?>"><i class="material-icons">person</i>Pesanan</a>
+        <a class="waves-effect" href="<?php echo base_url('pesanan'); ?>"><i class="material-icons">shopping_cart</i>Pesanan</a>
       </li>
 
       <li>
@@ -78,7 +78,7 @@
       </li>
 
       <li>
-        <a class="waves-effect" href="<?php echo base_url('dikirim'); ?>"><i class="material-icons">person</i>Dikirim</a>
+        <a class="waves-effect" href="<?php echo base_url('dikirim'); ?>"><i class="material-icons">schedule_send</i>Dikirim</a>
       </li>
 
       <li>
@@ -86,7 +86,7 @@
       </li>
 
       <li>
-        <a class="waves-effect" href="<?php echo base_url('history'); ?>"><i class="material-icons">person</i>Riwayat</a>
+        <a class="waves-effect" href="<?php echo base_url('history'); ?>"><i class="material-icons">history</i>Riwayat</a>
       </li>
 
       <li>

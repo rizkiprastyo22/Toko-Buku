@@ -45,6 +45,8 @@ class Order extends MY_Controller {
           if ($this->input->post('submit-konfirmasi')) {
 
           $data = array(
+            'resi' => $this->input->post('resi'),
+            'kurir' => $this->input->post('kurir'),
             'p_status' => 'dikirim'
           );
 

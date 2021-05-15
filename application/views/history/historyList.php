@@ -32,8 +32,10 @@
               <thead>
                   <tr>
                   <th>No</th>
+                  <th>Nomor Resi</th>
                   <th>Judul Buku</th>
                   <th>Alamat</th>
+                  <th class="center-align">Kurir</th>
                   <th class="center-align">Harga</th>
                   <th class="center-align">Status Pesanan</th>
                   </tr>
@@ -43,8 +45,10 @@
                     ?>
                     <tr>
                       <td><?php echo ++$no; ?></td>
+                      <td><?php echo $row->resi; ?></td>
                       <td><?php echo $row->judul; ?></td>
                       <td><?php echo $row->alamat; ?></td>
+                      <td class="center-align"><?php echo $row->kurir; ?></td>
                       <td class="center-align">Rp. <?php echo number_format($row->harga); ?></td>
                       <td class="center-align"><?php echo ucwords($row->p_status); ?></td>
                     </tr>

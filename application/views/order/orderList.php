@@ -41,7 +41,7 @@
                       <td><?php echo $row->alamat; ?></td>
                       <td><?php echo $row->judul; ?></td>
                       <td class="center-align">
-                        <a href="<?php echo base_url('order/konfirmasi/' . $row->oid); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Konfirmasi"><i class="material-icons">edit</i></a>
+                        <a href="<?php echo base_url('order/konfirmasi/' . $row->oid); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Konfirmasi"><i class="material-icons">done</i></a>
                       </td>
                     </tr>
                   <?php endforeach; ?>

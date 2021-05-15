@@ -36,6 +36,18 @@
               <input id="alamat" readonly name="alamat" type="text" value="<?php echo $order->alamat; ?>">
               <label for="alamat" class="">Alamat Pemesan</label>
           </div>
+          <div class="input-field col s12 m6">
+              <input id="resi" required name="resi" type="text" value="<?php echo set_value('resi'); ?>">
+              <label for="resi" class="">Nomor Resi</label>
+          </div>
+          <div class="input-field col s12 m6">
+              <select id="kurir" name="kurir">
+                  <option value="J&T Express">J&T Express</option>
+                  <option value="JNE Express">JNE Express</option>
+                  <option value="JD.ID">JD.ID</option>
+              </select>
+              <label>Pilih Kurir</label>
+          </div>
           <div class="input-field col s6 m6 l6 left-align">
             <br><br><a href="#modal3"><button name="batal" class="btn light blue lighten-2 waves-effect waves-green">Kembali</button></a>
           </div>
