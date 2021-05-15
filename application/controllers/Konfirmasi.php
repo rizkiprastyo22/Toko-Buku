@@ -34,48 +34,61 @@ class Pesanan extends MY_Controller {
     if (!$buku) show_404();
 
     // Data untuk page buku/add
-    $data['pageTitle'] = 'Konfirmasi Pembelian';
+    $data['pageTitle'] = 'Beli Buku';
     $data['buku'] = $buku;
-    $data['pageContent'] = $this->load->view('pesanan/konfirmasi', $data, TRUE);
+    $data['pageContent'] = $this->load->view('pesanan/pesananAdd', $data, TRUE);
 
     // Jalankan view template/layout
     $this->load->view('template/layout', $data);
 
     // Jika form di submit jalankan blok kode ini
-    if (($this->input->post('submit-konfirmasi')) && (($this->session->userdata('saldo'))>=($buku->harga))) {
+    if ($this->input->post('submit-pesanan')) {
+
+      // Mengatur validasi data password,
+      // # required = tidak boleh kosong
+      // # min_length[5] = password harus terdiri dari minimal 5 karakter
+      $this->form_validation->set_rules('jumlah', 'Jumlah Pembelian', 'required');
+
+      // Mengatur pesan error validasi data
+      $this->form_validation->set_message('required', '%s tidak boleh kosong!');
+
+      // Jalankan validasi jika semuanya benar maka lanjutkan
+      if ($this->form_validation->run() === TRUE) {
+
+        // Data untuk page buku/add
+        $data['pageTitle'] = 'Konfirmasi Pembelian';
+        $data['pageContent'] = $this->load->view('pesanan/konfirmasi', $data, TRUE);
+
+        // Jalankan view template/layout
+        $this->load->view('template/layout', $data);
+
+        // refresh page
+        // redirect('pesanan', 'refresh');
+
+        if ($this->input->post('submit-konfirmasi')) {
 
           $data = array(
             'p_email' => $this->input->post('p_email'),
             'p_judul' => $this->input->post('p_judul'),
-            'p_jumlah' => 1,
+            'p_jumlah' => $this->input->post('p_jumlah'),
             'p_status' => 'diproses'
           );
 
           // Jalankan function insert pada model_pesanan
-          $query = $this->model_pesanan->update_buku($id, $data);
+          $query = $this->model_pesanan->insert($data);
 
           // cek jika query berhasil
           if ($query) $message = array('status' => true, 'message' => 'Berhasil membeli buku, silakan mengecek status pemesananmu di kolom pemesanan ya');
-          else $message = array('status' => true, 'message' => 'Gagal membeli buku');
+          else $message = array('status' => true, 'message' => 'Gagal menambahkan buku');
 
           // simpan message sebagai session
           $this->session->set_flashdata('message', $message);
 
-          // $saldo = ($this->session->userdata('saldo')) - ($buku->harga);
-
-          // $harga = array(
-          //   'harga' => $saldo
-          // );
-
-          // Jalankan function insert pada model_pesanan
-          $query = $this->model_pesanan->update_saldo($id);
-
           // refresh page
           redirect('pesanan', 'refresh');
         }
-        
-        else $message = array('status' => true, 'message' => 'Saldo tidak cukup');
-        $this->session->set_flashdata('message', $message);
+			} 
+    }
   }
 
   public function edit($id = null)

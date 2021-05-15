@@ -5,6 +5,20 @@
           <span class="card-title">Data Pesanan</span>
         </div>
         <div class="card-content">
+        <?php if(validation_errors()): ?>
+            <div class="col s12">
+              <div class="card-panel red">
+                <span class="white-text"><?php echo validation_errors('<p>', '</p>'); ?></span>
+              </div>
+            </div>
+          <?php endif; ?>
+          <?php if($message = $this->session->flashdata('message')): ?>
+            <div class="col s12">
+              <div class="card-panel <?php echo ($message['status']) ? 'green' : 'red'; ?>">
+                <span class="white-text"><?php echo $message['message']; ?></span>
+              </div>
+            </div>
+          <?php endif; ?>
           <table class="bordered highlight">
               <thead>
                   <tr>
