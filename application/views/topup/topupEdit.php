@@ -6,7 +6,7 @@
         <span class="card-title"><?php echo $pageTitle; ?></span>
       </div>
       <div class="card-content">
-        <form class="row" id="edit-promo-form" method="post" action="" enctype="multipart/form-data">
+        <form class="row" id="edit-topup-form" method="post" action="<?php echo base_url('topup/edit'); ?>" enctype="multipart/form-data">
           <?php if(validation_errors()): ?>
             <div class="col s12">
               <div class="card-panel red">
@@ -22,11 +22,15 @@
             </div>
           <?php endif; ?>
           
-          <div class="input-field col s12 m12 l12">
-              <input id="email" readonly name="email" type="text" value="<?php echo $topup->t_email; ?>">
-              <label for="email" class="">ID Email Pengguna</label>
+          <div class="input-field col s12 m6">
+              <input id="r_email" readonly name="r_email" type="number" value=<?php echo $topup->t_email; ?>>
+              <label for="r_email" class="">ID Email Pengguna</label>
           </div>
-          <div class="input-field col s12 m12 l12">
+          <div class="input-field col s12 m6">
+              <input id="tid" readonly name="tid" type="number" value="<?php echo $topup->tid; ?>">
+              <label for="tid" class="">Email Pengguna</label>
+          </div>
+          <div class="input-field col s12 m6">
               <input id="topup" readonly name="topup" type="text" value="<?php echo $topup->topup; ?>">
               <label for="topup" class="">Nominal Top Up</label>
           </div>
@@ -40,7 +44,7 @@
             <br><br><a href="#modal4"><button name="batal" class="btn light blue lighten-2 waves-effect waves-green">Kembali</button></a>
           </div>
           <div class="input-field col s6 m6 l6 right-align">
-            <br><br><button type="submit" name="submit-topup" value="<?php echo $topup->tid; ?>" class="btn purple lighten-2 waves-effect waves-green">Simpan</button>
+            <br><br><button type="submit" name="submit-topup" value="<?php echo $topup->tid; ?>" class="btn purple lighten-2 waves-effect waves-green">Top Up</button>
           </div>
         </form>
         <!-- Modal Structure -->

@@ -37,33 +37,48 @@
       return $query->result();
     }
 
-    public function insert_riwayat($id, $data)
+    public function insert_riwayat($id, $data2)
     {
         // Jalankan query
         $query1 = $this->db
-            ->insert('riwayat', $data);
+            ->insert('riwayat', $data2);
 
         $query2 = $this->db
         ->from('users')
-        ->where('id', $data['email'])
+        ->where('id', $data2['r_email'])
         ->get()->row();
 
-        $akhir = ($query2->saldo) + $data['topup'];
+        $akhir = ($query2->saldo) + $data2['topup'];
 
         // Jalankan query
         $query3 = $this->db
         ->from('users')
-        ->where('id', $data['email'])
+        ->where('id', $data2['r_email'])
         ->set('saldo', $akhir)
         ->update('users');
 
         // Jalankan query
-        $query4 = $this->db
+        $query = $this->db
         ->where('tid', $id)
         ->delete($this->table);
       
         // Return hasil query
-        return $query3;
+        return $query;
+    }
+
+    public function delete($id, $gagal)
+    {
+      // Jalankan query
+      $query = $this->db
+        ->where('tid', $id)
+        ->delete($this->table);
+
+      // Jalankan query
+      $query1 = $this->db
+      ->insert('riwayat', $gagal);
+      
+      // Return hasil query
+      return $query;
     }
 
     public function get_where($where)
@@ -97,18 +112,5 @@
       return $query;
     }
 
-    public function delete($id, $gagal)
-    {
-      // Jalankan query
-      $query = $this->db
-        ->where('tid', $id)
-        ->delete($this->table);
-
-      // Jalankan query
-      $query1 = $this->db
-      ->insert('riwayat', $gagal);
-      
-      // Return hasil query
-      return $query;
-    }
+    
   }

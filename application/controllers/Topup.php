@@ -45,17 +45,19 @@ class Topup extends MY_Controller {
       // Jalankan validasi jika semuanya benar maka lanjutkan
       if ($this->form_validation->run() === TRUE) {
 
-        $data = array(
-            'r_email' => $this->input->post('email'),
+        $data2 = array(
+            'r_email' => $this->input->post('r_email'),
             'topup' => $this->input->post('topup'),
             'status' => $this->input->post('status')
         );
 
+        $id = $this->input->post('tid');
+
         // Jalankan function insert pada model_topup
-        $query3 = $this->model_topup->insert_riwayat($id, $data);
+        $query = $this->model_topup->insert_riwayat($id, $data2);
 
         // cek jika query berhasil
-        if ($query3) $message = array('status' => true, 'message' => 'Top Up pengguna berhasil');
+        if ($query) $message = array('status' => true, 'message' => 'Top Up pengguna berhasil');
         else $message = array('status' => true, 'message' => 'Top Up pengguna gagal');
 
         // simpan message sebagai session
@@ -63,7 +65,7 @@ class Topup extends MY_Controller {
 
         // refresh page
         redirect('topup', 'refresh');
-		} 
+		  } 
     }
     
     // Ambil data topup dari database

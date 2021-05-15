@@ -18,6 +18,7 @@
                   <tr>
                   <th>No</th>
                   <th>Email</th>
+                  <th class="center-align">Saldo Awal</th>
                   <th class="center-align">Nominal Top Up</th>
                   <!-- <th class="center-align">Stock</th>
                   <th class="center-align">Harga</th> -->
@@ -26,11 +27,13 @@
               </thead>
               <tbody>
                   <?php $no = 0; foreach($topup as $row): 
+                    $awal = number_format($row->saldo);
                     $nominal = number_format($row->topup);
                     ?>
                     <tr>
                       <td><?php echo ++$no; ?></td>
                       <td><?php echo $row->email; ?></td>
+                      <td class="center-align">Rp. <?php echo $awal; ?></td>
                       <td class="center-align">Rp. <?php echo $nominal; ?></td>
                       <!-- <td class="center-align"><?php echo $row->stock; ?></td>
                       <td class="center-align">Rp. <?php echo $harga; ?></td> -->
