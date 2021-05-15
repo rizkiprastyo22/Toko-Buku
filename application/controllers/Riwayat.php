@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class History extends MY_Controller {
+class Riwayat extends MY_Controller {
 
   public function __construct()
   {
@@ -9,17 +9,17 @@ class History extends MY_Controller {
     // Cek apakah user sudah login
     $this->cekLogin();
 
-    // Load model History
-    $this->load->model('model_history');
+    // Load model riwayat
+    $this->load->model('model_riwayat');
   }
 
   public function index()
   {
     // Data untuk page index
     $data['pageTitle'] = 'Riwayat';
-    $data['riwayat'] = $this->model_history->get_riwayat($this->session->userdata('id'))->result();
-    $data['topup'] = $this->model_history->get_topup($this->session->userdata('id'))->result();
-    $data['pageContent'] = $this->load->view('history/historyList', $data, TRUE);
+    $data['riwayat'] = $this->model_riwayat->get_riwayat()->result();
+    $data['topup'] = $this->model_riwayat->get_topup()->result();
+    $data['pageContent'] = $this->load->view('riwayat/riwayatList', $data, TRUE);
 
     // Jalankan view template/layout
     $this->load->view('template/layout', $data);

@@ -26,7 +26,7 @@
                   <th>Judul Buku</th>
                   <th>Alamat</th>
                   <th class="center-align">Status Pesanan</th>
-                  <th class="center-align">Konfirmasi diterima</th>
+                  <th class="center-align">Konfirmasi Diterima</th>
                   </tr>
               </thead>
               <tbody>

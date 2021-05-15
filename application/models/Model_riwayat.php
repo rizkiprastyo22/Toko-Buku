@@ -1,5 +1,5 @@
 <?php
-  class Model_history extends CI_Model {
+  class Model_riwayat extends CI_Model {
 
     public $table = 'pesanan';
 
@@ -54,14 +54,13 @@
       return $query;
     }
 
-    public function get_riwayat($id)
+    public function get_riwayat()
     {
       // Jalankan query
       $query = $this->db
         ->from($this->table)
         ->join('buku', 'pesanan.p_judul = buku.id')
         ->join('users', 'pesanan.p_email = users.id')
-        ->where('p_email', $id)
         ->where('p_status', 'selesai')
         ->get();
 
@@ -69,13 +68,12 @@
       return $query;
     }
 
-    public function get_topup($id)
+    public function get_topup()
     {
       // Jalankan query
       $query = $this->db
         ->from('riwayat')
         ->join('users', 'riwayat.r_email = users.id')
-        ->where('r_email', $id)
         ->get();
 
       // Return hasil query
