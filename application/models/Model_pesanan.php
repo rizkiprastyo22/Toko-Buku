@@ -54,6 +54,19 @@
       return $query;
     }
 
+    public function get_order($where)
+    {
+      // Jalankan query
+      $query = $this->db
+        ->from($this->table)
+        ->where($where)
+        ->join('buku', 'pesanan.p_judul = buku.id')
+        ->get();
+
+      // Return hasil query
+      return $query;
+    }
+
     public function get_buku($where)
     {
       // Jalankan query

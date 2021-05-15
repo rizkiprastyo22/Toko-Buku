@@ -17,7 +17,7 @@ class Pesanan extends MY_Controller {
   {
     // Data untuk page index
     $data['pageTitle'] = 'Pesanan';
-    $data['pesanan'] = $this->model_pesanan->get_where(array('p_email' => $this->session->userdata('id')))->result();
+    $data['pesanan'] = $this->model_pesanan->get_order(array('p_email' => $this->session->userdata('id')))->result();
     $data['pageContent'] = $this->load->view('pesanan/pesananList', $data, TRUE);
 
     // Jalankan view template/layout
@@ -76,6 +76,7 @@ class Pesanan extends MY_Controller {
         
         else $message = array('status' => true, 'message' => 'Saldo tidak cukup');
         $this->session->set_flashdata('message', $message);
+        redirect('pesanan', 'refresh');
   }
 
   public function edit($id = null)

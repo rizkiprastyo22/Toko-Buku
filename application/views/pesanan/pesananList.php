@@ -32,9 +32,9 @@
                   <?php $no = 0; foreach($pesanan as $row): ?>
                     <tr>
                       <td><?php echo ++$no; ?></td>
-                      <td><?php echo $row->p_judul; ?></td>
+                      <td><?php echo $row->judul; ?></td>
                       <td class="center-align"><?php echo $row->p_jumlah; ?></td>
-                      <td class="center-align"><?php echo $row->p_status; ?></td>
+                      <td class="center-align"><?php echo ucwords($row->p_status); ?></td>
                     </tr>
                   <?php endforeach; ?>
               </tbody>

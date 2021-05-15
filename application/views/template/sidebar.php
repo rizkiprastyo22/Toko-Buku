@@ -36,7 +36,7 @@
       </li>
 
       <li>
-        <a class="waves-effect" href="<?php echo base_url('pesanan'); ?>"><i class="material-icons">article</i>Pesanan</a>
+        <a class="waves-effect" href="<?php echo base_url('order'); ?>"><i class="material-icons">article</i>Order</a>
       </li>
       
       <li>
