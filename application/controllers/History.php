@@ -18,6 +18,7 @@ class History extends MY_Controller {
     // Data untuk page index
     $data['pageTitle'] = 'Riwayat';
     $data['riwayat'] = $this->model_history->get_riwayat()->result();
+    $data['topup'] = $this->model_history->get_topup($this->session->userdata('id'))->result();
     $data['pageContent'] = $this->load->view('history/historyList', $data, TRUE);
 
     // Jalankan view template/layout

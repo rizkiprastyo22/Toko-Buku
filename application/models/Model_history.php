@@ -68,6 +68,19 @@
       return $query;
     }
 
+    public function get_topup($id)
+    {
+      // Jalankan query
+      $query = $this->db
+        ->from('riwayat')
+        ->join('users', 'riwayat.r_email = users.id')
+        ->where('r_email', $id)
+        ->get();
+
+      // Return hasil query
+      return $query;
+    }
+
     public function get_buku($where)
     {
       // Jalankan query
