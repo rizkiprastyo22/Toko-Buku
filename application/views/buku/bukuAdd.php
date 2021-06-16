@@ -1,4 +1,3 @@
-<!-- <main style="background-image: url('img/bg1.png');"> -->
 <div class="row">
   <div class="col s12">
     <div class="card">
@@ -24,7 +23,7 @@
           <?php endif; ?>
           <div class="input-field col s12 m6">
               <input id="nisn" name="nisn" type="number" value="<?php echo set_value('nisn'); ?>">
-              <label for="nisn" class="">NISN</label>
+              <label for="nisn" class="">ISBN</label>
           </div>
           <div class="input-field col s12 m6">
               <input id="judul" name="judul" type="text" value="<?php echo set_value('judul'); ?>">
@@ -82,4 +81,3 @@
     </div>
   </div>
 </div>
-<!-- </main> -->

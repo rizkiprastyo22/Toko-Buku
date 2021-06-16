@@ -13,13 +13,7 @@
               </div>
             </div>
           <?php endif; ?>
-          <!-- <?php if($message = $this->session->flashdata('message')): ?>
-            <div class="col s12">
-              <div class="card-panel <?php echo ($message['status']) ? 'green' : 'red'; ?>">
-                <span class="white-text"><?php echo $message['message']; ?></span>
-              </div>
-            </div>
-          <?php endif; ?> -->
+
           <div class="input-field col s12 m6">
               <input id="p_email" readonly name="p_email" type="number" value="<?php echo $this->session->userdata('id'); ?>">
               <label for="p_email" class="">ID Pengguna</label>
@@ -38,7 +32,7 @@
           </div>
           <div class="input-field col s12 m6">
               <input id="saldo" readonly name="saldo" type="number" value="<?php echo $this->session->userdata('saldo'); ?>">
-              <label for="saldo" class="">Ubur Cash Anda</label>
+              <label for="saldo" class="">Serendipity Cash Anda</label>
           </div>
           <div class="input-field col s6 m6 l6 left-align">
             <br><br><a href="#modal3"><button name="batal" class="btn light blue lighten-2 waves-effect waves-green">Kembali</button></a>
@@ -47,6 +41,7 @@
             <br><br><button type="submit" name="submit-konfirmasi" value="add_konfirmasi" class="btn purple lighten-2 waves-effect waves-green">Beli Sekarang</button>
           </div>
         </form>
+        
         <!-- Modal Structure -->
         <div id="modal3" class="modal center-align" style="width:320px;">
           <div class="modal-content purple lighten-2 white-text">

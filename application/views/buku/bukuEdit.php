@@ -1,4 +1,3 @@
-<!-- <main style="background-image: url('img/bg1.png');"> -->
 <div class="row">
   <div class="col s12">
     <div class="card">
@@ -24,7 +23,7 @@
           
           <div class="input-field col s12 m6">
               <input id="nisn" disabled name="nisn" type="number" value="<?php echo $buku->nisn; ?>">
-              <label for="mitra" class="">NISN</label>
+              <label for="mitra" class="">ISBN</label>
           </div>
           <div class="input-field col s12 m6">
               <input id="judul" disabled name="judul" type="text" value="<?php echo $buku->judul; ?>">
@@ -82,4 +81,3 @@
     </div>
   </div>
 </div>
-<!-- </main> -->

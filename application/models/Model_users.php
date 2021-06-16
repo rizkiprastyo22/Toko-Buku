@@ -12,8 +12,7 @@
       // Jalankan query
       $query = $this->db->get($this->table)->row();
       
-      // Jika query gagal atau tidak menemukan email yang sesuai 
-      // maka return false
+      // Jika query gagal atau tidak menemukan email yang sesuai maka return false
       if (!$query) return false;
 			
       // Ambil data password dari database

@@ -13,20 +13,13 @@
     <li>
       <a class="waves-effect" href="<?php echo base_url('dashboard'); ?>"><i class="material-icons">home</i>Home</a>
     </li>
-
-    <!-- <li>
-      <a class="waves-effect" href="<?php echo base_url('events'); ?>"><i class="material-icons">event</i>Events</a>
-    </li> -->
     
     <li>
       <div class="divider"></div>
     </li>
 
     <?php if($this->session->userdata('level') === 'administrator'): ?>
-      <!-- <li>
-        <a class="subheader">administrator</a>
-      </li> -->
-      
+
       <li>
         <a class="waves-effect" href="<?php echo base_url('buku'); ?>"><i class="material-icons">article</i>Daftar Buku</a>
       </li>

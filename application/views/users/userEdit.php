@@ -28,10 +28,6 @@
               <input id="email" disabled name="email" type="email" value="<?php echo $user->email; ?>">
               <label for="email" class="">Email</label>
           </div>
-          <!-- <div class="input-field col s12 m6">
-              <input id="password" name="password" type="password" value="">
-              <label for="password" class="">Password</label>
-          </div> -->
           <div class="input-field col s12 m6">
               <select disabled id="level" name="level">
                   <option <?php echo ($user->level === 'mitra') ? 'selected' : ''; ?> value="mitra">Mitra</option>

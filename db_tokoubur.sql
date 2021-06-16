@@ -9,9 +9,12 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(50) NOT NULL,
+  `alamat` varchar(255),
+  `no_telp` varchar(20),
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `level` enum('administrator','pelanggan') NOT NULL DEFAULT 'administrator',
+  `level` enum('administrator','pelanggan') NOT NULL DEFAULT 'pelanggan',
+  `saldo` int(11) NOT NULL DEFAULT 0,
   `active` enum('aktif','tidak aktif') NOT NULL DEFAULT 'aktif',
   `last_login` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -20,8 +23,8 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'Toko Ubur Ubur', 'admin@tokoubur.id', '$2y$10$msjK0HDeOOHMyOJXM7jY6Oc09YuslmGZV18BekjJ2i1acDQ6PPq/C', 'administrator', 'aktif', '0000-00-00 00:00:00');
-INSERT INTO `users` VALUES ('2', 'Sheilla Anjani', 'sheilla.anjani@gmail.com', '$2y$10$msjK0HDeOOHMyOJXM7jY6Oc09YuslmGZV18BekjJ2i1acDQ6PPq/C', 'pelanggan', 'aktif', '0000-00-00 00:00:00');
+INSERT INTO `users` VALUES ('1', 'Toko Ubur Ubur', null, null, 'admin@tokoubur.id', '$2y$10$msjK0HDeOOHMyOJXM7jY6Oc09YuslmGZV18BekjJ2i1acDQ6PPq/C', 'administrator', 0, 'aktif', '0000-00-00 00:00:00');
+INSERT INTO `users` VALUES ('2', 'Sheilla Anjani', 'Jl. Ahmad Yani 94-B, Gilingan, Banjarsari, Surakarta', '083865753334', 'sheilla.anjani@gmail.com', '$2y$10$msjK0HDeOOHMyOJXM7jY6Oc09YuslmGZV18BekjJ2i1acDQ6PPq/C', 'pelanggan', 150000, 'aktif', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for data buku
@@ -52,31 +55,15 @@ INSERT INTO `buku` VALUES (5, '281120005', 'Inestable', 'Eko Viano Winata', 6, 5
 -- ----------------------------
 -- Table structure for data pembeli
 -- ----------------------------
-DROP TABLE IF EXISTS `pembeli`;
-CREATE TABLE `pembeli`
-(
-   `id` INT(11) NOT NULL AUTO_INCREMENT,
-   `email` INT(11),
-   `judul` INT(11),
-   `jumlah` INT(5),
-   FOREIGN KEY (email) REFERENCES users(id),
-   FOREIGN KEY (judul) REFERENCES buku(id),
-   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
-
--- ----------------------------
--- Table structure for data pembeli
--- ----------------------------
 DROP TABLE IF EXISTS `topup`;
 CREATE TABLE `topup`
 (
-   `id` INT(11) NOT NULL AUTO_INCREMENT,
-   `email` INT(11),
+   `tid` INT(11) NOT NULL AUTO_INCREMENT,
+   `t_email` INT(11),
    `topup` INT(11),
    `transaksi` enum('diproses') NOT NULL DEFAULT 'diproses',
-   FOREIGN KEY (email) REFERENCES users(id),
-   PRIMARY KEY (`id`)
+   FOREIGN KEY (t_email) REFERENCES users(id),
+   PRIMARY KEY (`tid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 
@@ -87,11 +74,11 @@ DROP TABLE IF EXISTS `riwayat`;
 CREATE TABLE `riwayat`
 (
    `rid` INT(11) NOT NULL AUTO_INCREMENT,
-   `email` INT(11),
+   `r_email` INT(11),
    `topup` INT(11),
    `status` enum('berhasil','gagal'),
-   FOREIGN KEY (email) REFERENCES users(id),
-   PRIMARY KEY (`id`)
+   FOREIGN KEY (r_email) REFERENCES users(id),
+   PRIMARY KEY (`rid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `pesanan`;
@@ -101,18 +88,10 @@ CREATE TABLE `pesanan`
    `p_email` INT(11),
    `p_judul` INT(11),
    `p_jumlah` INT(11),
+   `resi` varchar(50),
+   `kurir` varchar(50),
    `p_status` enum('diproses','dikirim', 'selesai') NOT NULL DEFAULT 'diproses',
    FOREIGN KEY (p_email) REFERENCES users(id),
    FOREIGN KEY (p_judul) REFERENCES buku(id),
    PRIMARY KEY (`oid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
-SELECT *
-FROM pembeli
-   INNER JOIN
-   users
-   ON pembeli.email = users.id
-   INNER JOIN
-   buku
-   ON pembeli.judul = buku.id
-   WHERE pembeli.transaksi IS NULL;

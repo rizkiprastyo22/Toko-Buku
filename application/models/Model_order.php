@@ -110,7 +110,7 @@
 
       $saldo = ($this->session->userdata('saldo')) - ($query1->harga);
 
-      //Jalankan query
+      // Jalankan query
       $query = $this->db
         ->where('id', $this->session->userdata('id'))
         ->set('saldo', $saldo)

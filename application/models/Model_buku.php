@@ -68,7 +68,6 @@
       // Jalankan query
       $query = $this->db
         ->from('pembeli')
-        // ->join('users', 'pembeli.email = users.id')
         ->join('buku', 'pembeli.judul = buku.id')
         ->where($where)
         ->get();
@@ -81,9 +80,7 @@
     {
       // Jalankan query
       $query = $this->db
-        // ->select('buku.judul','pembeli.jumlah','buku.harga')
         ->from('pembeli')
-        // ->join('users', 'pembeli.email = users.id')
         ->join('buku', 'pembeli.judul = buku.id')
         ->where('pembeli.pid', $where)
         ->get();
@@ -96,9 +93,7 @@
     {
       // Jalankan query
       $query = $this->db
-        // ->select('buku.judul','pembeli.jumlah','buku.harga')
         ->from('pembeli')
-        // ->join('users', 'pembeli.email = users.id')
         ->join('buku', 'pembeli.judul = buku.id')
         ->where('pembeli.pid', $where)
         ->get();
@@ -107,27 +102,11 @@
       return $query;
     }
 
-    // public function get_where_barang($where)
-    // {
-    //   // Jalankan query
-    //   $query = $this->db
-    //     // ->select('buku.judul','pembeli.jumlah','buku.harga')
-    //     ->from('pembeli')
-    //     // ->join('users', 'pembeli.email = users.id')
-    //     ->join('buku', 'pembeli.judul = buku.id')
-    //     ->where('pembeli.id', $where)
-    //     ->get();
-
-    //   // Return hasil query
-    //   return $query;
-    // }
-
     public function total_biaya($where)
     {
       // Jalankan query
       $query = $this->db
         ->from('pembeli')
-        // ->join('users', 'pembeli.email = users.id')
         ->join('buku', 'pembeli.judul = buku.id')
         ->where($where)
         ->get()
@@ -166,21 +145,6 @@
       // Return hasil query
       return $query;
     }
-
-    // public function tampil_belanja($where)
-    // {
-    //   // Jalankan query
-    //   $query = $this->db
-    //     ->select(pembeli.email)
-    //     ->from('pembeli')
-    //     // ->join('users', 'pembeli.email = users.id')
-    //     ->join('buku', 'pembeli.judul = buku.id')
-    //     ->where($where)
-    //     ->get();
-
-    //   // Return hasil query
-    //   return $query->result();
-    // }
 
     public function insert_belanja($data)
     {

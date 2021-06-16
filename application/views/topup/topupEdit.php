@@ -1,4 +1,3 @@
-<!-- <main style="background-image: url('img/bg1.png');"> -->
 <div class="row">
   <div class="col s12">
     <div class="card">

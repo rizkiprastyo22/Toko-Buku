@@ -24,7 +24,7 @@ class Auth extends CI_Controller
     // Jika berhasil maka set user session dan return true
     } else {
 
-      // data user dalam bentuk array
+      // Data user dalam bentuk array
       $userData = array(
         'id' => $query->id,
         'nama' => $query->nama,
@@ -37,7 +37,7 @@ class Auth extends CI_Controller
         'logged_in' => TRUE
       );
 			
-      // set session untuk user
+      // Set session untuk user
       $this->session->set_userdata($userData);
 
       return TRUE;
@@ -53,7 +53,7 @@ class Auth extends CI_Controller
     if ($this->input->post('submit')) {
       
       // Mengatur validasi data email,
-      // required = tidak boleh kosong
+      // Required = tidak boleh kosong
       $this->form_validation->set_rules('email', 'Email', 'required');
 
       // Mengatur validasi data password,

@@ -44,9 +44,8 @@ class Pesanan extends MY_Controller {
     // Jika form di submit jalankan blok kode ini
     if ($this->input->post('submit-pesanan')) {
 
-      // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
+      // Mengatur validasi data jumlah,
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('jumlah', 'Jumlah Pembelian', 'required');
 
       // Mengatur pesan error validasi data
@@ -62,7 +61,7 @@ class Pesanan extends MY_Controller {
         // Jalankan view template/layout
         $this->load->view('template/layout', $data);
 
-        // refresh page
+        // Refresh page
         // redirect('pesanan', 'refresh');
 
         if ($this->input->post('submit-konfirmasi')) {
@@ -77,14 +76,14 @@ class Pesanan extends MY_Controller {
           // Jalankan function insert pada model_pesanan
           $query = $this->model_pesanan->insert($data);
 
-          // cek jika query berhasil
+          // Cek jika query berhasil
           if ($query) $message = array('status' => true, 'message' => 'Berhasil membeli buku, silakan mengecek status pemesananmu di kolom pemesanan ya');
           else $message = array('status' => true, 'message' => 'Gagal menambahkan buku');
 
-          // simpan message sebagai session
+          // Simpan message sebagai session
           $this->session->set_flashdata('message', $message);
 
-          // refresh page
+          // Refresh page
           redirect('pesanan', 'refresh');
         }
 			} 
@@ -96,18 +95,13 @@ class Pesanan extends MY_Controller {
     // Jika form di submit jalankan blok kode ini
     if ($this->input->post('submit-buku')) {
 
-      // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
+      // Mengatur validasi data stok,
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('stock', 'Stok', 'required');
 
-      // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
+      // Mengatur validasi data harga,
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('harga', 'Harga', 'required');
-
-      // Mengatur pesan error validasi data
-      $this->form_validation->set_message('required', '%s tidak boleh kosong!');
 
       // Mengatur pesan error validasi data
       $this->form_validation->set_message('required', '%s tidak boleh kosong!');
@@ -145,14 +139,14 @@ class Pesanan extends MY_Controller {
         // Jalankan function insert pada model_pesanan
         $query = $this->model_pesanan->update($id, $data);
 
-        // cek jika query berhasil
+        // Cek jika query berhasil
         if ($query) $message = array('status' => true, 'message' => 'Berhasil memperbarui buku');
         else $message = array('status' => true, 'message' => 'Gagal memperbarui buku');
 
-        // simpan message sebagai session
+        // Simpan message sebagai session
         $this->session->set_flashdata('message', $message);
 
-        // refresh page
+        // Refresh page
         redirect('buku/edit/'.$id, 'refresh');
 			} 
     }
@@ -183,14 +177,14 @@ class Pesanan extends MY_Controller {
     // Jalankan function delete pada model_pesanan
     $query = $this->model_pesanan->delete($id);
 
-    // cek jika query berhasil
+    // Cek jika query berhasil
     if ($query) $message = array('status' => true, 'message' => 'Berhasil menghapus buku');
     else $message = array('status' => true, 'message' => 'Gagal menghapus buku');
 
-    // simpan message sebagai session
+    // Simpan message sebagai session
     $this->session->set_flashdata('message', $message);
 
-    // refresh page
+    // Refresh page
     redirect('buku', 'refresh');
   }
 }

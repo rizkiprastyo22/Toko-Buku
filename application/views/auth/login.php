@@ -30,12 +30,10 @@
   <body>
   <header>
       
-      <nav class="purple lighten-2 navbar-fixed" role="navigation">
+      <nav class="purple darken-1 navbar-fixed" role="navigation">
           <div class="nav-wrapper container">
               <a id="logo-container" href="<?php echo base_url('auth/login'); ?>" class="brand-logo center">
-                <span>TOKO UBUR UBUR</span>
-                <!-- <img src="<?php echo base_url('img/logoku.png'); ?>" width="200" 
-                height="50" alt="Toko Ubur Ubur"> -->
+                <span>SERENDIPITY BOOKSTORE</span>
               </a>
           </div>
       </nav>
@@ -78,9 +76,7 @@
                         <input id="password" type="password" class="validate" name="password">
                         <label for="password" data-error="Password yang anda masukkan salah">Password</label>
                       </div>
-                      <!-- <div class="input-field col m12 left-align">
-                            Belum punya akun? <a href="#password-tab">Daftar Sekarang!</a>
-                        </div> -->
+
                       <div class="input-field col s12 m12 l12 right-align">
                         <br><button class="btn waves-effect waves-light btn-primary btn-pill purple lighten-2" type="submit" name="submit" value="login">
                           Login
@@ -125,21 +121,19 @@
                       </div>
                       <div class="input-field col m12">
                         <input id="aggreement" type="checkbox" class="validate" name="aggreement">
-                        <label for="aggreement">Saya telah membaca dan menyetujui <a href="#modal2">Syarat dan Ketentuan yang berlaku di Toko Ubur Ubur</a></label>
+                        <label for="aggreement">Saya telah membaca dan menyetujui <a href="#modal2">Syarat dan Ketentuan yang berlaku di Serendipity Bookstore</a></label>
                         <div id="modal2" class="modal">
                           <div class="modal-content purple lighten-2 white-text">
-                            <h4 style="font-size: 1.5rem;">Syarat dan Ketentuan Pengguna Aplikasi Toko Ubur Ubur</h4>
+                            <h4 style="font-size: 1.5rem;">Syarat dan Ketentuan Pengguna Aplikasi Serendipity Bookstore</h4>
                           </div>
                           <div class="modal-content">
-                            <p style="font-size: 1.2rem;">Bercanda hehe</p>
+                            <p style="font-size: 1.2rem;">BISMILLAH PBO A</p>
                           </div>
                           <div class="modal-footer">
                             <a href="#password-tab" class="modal-close waves-effect waves-green btn-flat">Tutup</a>
                           </div>
+                        </div>
                       </div>
-                      <!-- <div class="input-field col m12 left-align">
-                            Sudah punya akun? Silakan <a href="#basic-tab">login</a>
-                        </div> -->
                       <div class="input-field col s12 m12 l12 right-align">
                         <br><br><button class="btn waves-effect waves-light btn-primary btn-pill purple lighten-2" type="submit" name="submit" value="login">
                           Sign Up
@@ -154,12 +148,10 @@
       </div>
     </main>
 
-    <footer class="page-footer blue-grey lighten-1">
-        <div class="footer-copyright blue-grey lighten-1">
+    <footer class="page-footer purple darken-1">
+        <div class="footer-copyright purple darken-1">
             <div class="nav-wrapper container center">
-              <p>Follow Us! 
-            
-                | Instagram: <a rel="nofollow" href="https://templatemo.com" class="white-text">@tokoubur</a></p>
+              <p style="margin-bottom:10px;">Follow Us On <a rel="nofollow" href="https://github.com/sheilla13/" class="white-text"><b>@serendipitybs</b>!</a></p>
             </div>
         </div>
     </footer>

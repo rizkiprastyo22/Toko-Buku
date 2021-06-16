@@ -54,14 +54,14 @@ class Riwayat extends MY_Controller {
           // Jalankan function insert pada model_riwayat
           $query = $this->model_riwayat->update($id, $data);
 
-          // cek jika query berhasil
-          if ($query) $message = array('status' => true, 'message' => 'Pesanan Selesai! Terima kasih telah berbelanja di Toko Ubur Ubur');
+          // Cek jika query berhasil
+          if ($query) $message = array('status' => true, 'message' => 'Pesanan Selesai! Terima kasih telah berbelanja di Serendipity Bookstore');
           else $message = array('status' => true, 'message' => 'Konfirmasi pengiriman gagal');
 
-          // simpan message sebagai session
+          // Simpan message sebagai session
           $this->session->set_flashdata('message', $message);
 
-          // refresh page
+          // Refresh page
           redirect('riwayat', 'refresh');
 
         } 

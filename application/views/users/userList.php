@@ -21,8 +21,6 @@
                       <th>Email</th>
                       <th>Nomor Telepon</th>
                       <th class="center-align">Status Akun</th>
-                      <!-- <th class="center-align">Active</th>
-                      <th class="center-align">Last Login</th> -->
                       <th class="center-align">Edit Status</th>
                   </tr>
               </thead>
@@ -36,11 +34,8 @@
                       <td><?php echo $email[0].'<br>@'.$email[1]; ?></td>
                       <td><?php echo $row->no_telp; ?></td>
                       <td class="center-align"><?php echo ucwords($row->active); ?></td>
-                      <!-- <td><?php echo $row->last_login; ?></td> -->
-                      <!-- <td class="center-align"><?php echo $row->last_login; ?></td> -->
                       <td class="center-align">
                         <a href="<?php echo base_url('users/edit/' . $row->id); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Edit Status"><i class="material-icons">edit</i></a>
-                        <!-- <a href="<?php echo base_url('users/delete/' . $row->id); ?>" class="btn-floating halfway-fab waves-effect waves-light tooltipped purple lighten-2" data-position="top" data-tooltip="Delete Data"><i class="material-icons">delete</i></a> -->
                       </td>
                     </tr>
                   <?php endforeach; ?>

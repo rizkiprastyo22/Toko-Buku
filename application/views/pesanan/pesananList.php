@@ -35,7 +35,7 @@
                       <td><?php echo ++$no; ?></td>
                       <td><?php echo $row->judul; ?></td>
                       <td><?php echo $row->pengarang; ?></td>
-                      <td class="center-align">Rp. <?php echo number_format($row->harga); ?></td>
+                      <td class="center-align">Rp<?php echo number_format($row->harga,2,',','.'); ?></td>
                       <td class="center-align"><?php echo ucwords($row->p_status); ?></td>
                     </tr>
                   <?php endforeach; ?>

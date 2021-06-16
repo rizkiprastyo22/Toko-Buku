@@ -1,4 +1,3 @@
-<!-- <main style="background-image: url('img/bg1.png');"> -->
 <div class="row">
   <div class="col s12">
     <div class="card">
@@ -38,23 +37,8 @@
                 <br><br><a href="#modal10"><button name="batal" class="btn light blue lighten-2 waves-effect waves-green">Kembali</button></a>
             </div>
             <div class="input-field col s6 m6 l6 right-align">
-                <!-- <br><br><button type="submit" name="submit-order" value="add_keranjang" class="btn light purple lighten-2 waves-effect waves-green">Update Keranjang</button> -->
                 <br><br><a href="#modal9"><button name="total" class="btn light purple lighten-2 waves-effect waves-green">Top Up</button></a>
             </div>
-
-            <!-- Modal Structure -->
-            <!-- <div id="modal9" class="modal center-align" style="width:320px;">
-            <div class="modal-content purple lighten-2 white-text">
-                <h4 style="font-size: 1.5rem;">Konfirmasi Top Up</h4>
-            </div>
-            <div class="modal-content">
-                <p style="font-size: 1.2rem;">Apakah kamu yakin data top up sudah benar?</p>
-            </div>
-            <div class="modal-footer">
-                <br><br><button type="submit" name="submit-topup" value="add_topup" class="modal-close waves-effect waves-green btn-flat">Yakin</button> -->
-                <!-- <a href="<?php echo base_url('profile/topup/' . $this->session->userdata('id')); ?>" class="modal-close waves-effect waves-green btn-flat">Yakin</a> -->
-                <!-- <a href="" class="modal-close waves-effect waves-green btn-flat">Batal</a>
-            </div> -->
         </form>
         <!-- Modal Structure -->
         <div id="modal10" class="modal center-align" style="width:320px;">
@@ -73,4 +57,3 @@
     </div>
   </div>
 </div>
-<!-- </main> -->

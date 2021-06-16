@@ -9,8 +9,7 @@ class Buku extends MY_Controller {
     // Cek apakah user sudah login
     $this->cekLogin();
 
-    // Cek apakah user login 
-    // sebagai mitra
+    // Cek apakah user login sebagai mitra
     $this->isAdmin();
 
     // Load model Buku
@@ -28,77 +27,33 @@ class Buku extends MY_Controller {
     $this->load->view('template/layout', $data);
   }
 
-  // public function sendmail()
-  // {
-  //   if(isset($_POST['submit_email'])){
-  //     $email = $this->input->post('email');
-  //     $subject = $this->input->post('subject');
-  //     $pesan = $this->input->post('pesan');
-
-  //     if(!empty($email)){
-  //       $config = [
-  //         'mailtype' => 'text',
-  //         'charset' => 'iso-8859-1',
-  //         'protocol' => 'smtp',
-  //         'smtp_host' => 'ssl://smtp.googlemail.com',
-  //         'smtp_user' => 'hematwarrior.gmail',
-  //         'smtp_pass' => 'SemangatIAI21',
-  //         'smtp_port' => 465
-  //       ];
-
-  //       $this->load->library('email', $config);
-  //       $this->email->initialize($config);
-
-  //       $this->emai->from('emailfrom');
-  //       $this->emai->to($email);
-  //       $this->emai->subject($subject);
-  //       $this->emai->message($pesan);
-
-  //       if($this->email-send()){
-  //         echo "Email berhasil dikirim!"
-  //       } else{
-  //         show_error($this->email->print_debugger())
-  //       }
-
-  //     }
-  //   }
-  // }
-
   public function add()
   {
     // Jika form di submit jalankan blok kode ini
     if ($this->input->post('submit-buku')) {
       
-      // Mengatur validasi data buku,
-      // # required = tidak boleh kosong
-      // # min_length[5] = buku harus terdiri dari minimal 5 karakter
-      //   tidak boleh sama dengan record yg sudah ada pada tabel buku
+      // Mengatur validasi data buku, tidak boleh sama dengan record yang sudah ada pada tabel buku
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('nisn', 'NISN', 'required');
       
-      // Mengatur validasi data buku,
-      // # required = tidak boleh kosong
-      // # min_length[5] = buku harus terdiri dari minimal 5 karakter
-      //   tidak boleh sama dengan record yg sudah ada pada tabel buku
+      // Mengatur validasi data judul
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('judul', 'Judul', 'required');
 
-      // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
+      // Mengatur validasi data pengarang
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('pengarang', 'Pengarang', 'required');
 
-      // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
+      // Mengatur validasi data stok
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('stock', 'Stok', 'required');
 
-      // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
+      // Mengatur validasi data harga,
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('harga', 'Harga', 'required');
 
-      // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
+      // Mengatur validasi data deskripsi,
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
 
       // Mengatur pesan error validasi data
@@ -140,47 +95,14 @@ class Buku extends MY_Controller {
         // Jalankan function insert pada model_buku
         $query = $this->model_buku->insert($data);
 
-        // if(isset($_POST['submit_email'])){
-          // $email = $this->input->post('email');
-          // $email = 'rizkiprastyo1@gmail.com';
-          // $subject = $this->input->post('mitra').' sedang ada diskon besar!';
-          // $pesan = 'Bagi kamu pelanggan setia '.$this->input->post('mitra').', lagi ada diskon menu '.$this->input->post('buku').': -'.$this->input->post('deskripsi').'- dari yang harganya '.$this->input->post('harga_awal').' JADI CUMA '.$this->input->post('harga_buku');
-    
-          // if(!empty($email)){
-          //   $config = [
-          //     'mailtype' => 'text',
-          //     'charset' => 'iso-8859-1',
-          //     'protocol' => 'smtp',
-          //     'smtp_host' => 'ssl://smtp.googlemail.com',
-          //     'smtp_user' => 'hematwarrior@gmail.com',
-          //     'smtp_pass' => 'SemangatIAI21',
-          //     'smtp_port' => 465
-          //   ];
-    
-          //   $this->load->library('email', $config);
-          //   $this->email->initialize($config);
-    
-          //   $this->email->from('hematwarrior@gmail.com', 'Toko Ubur Ubur');
-          //   $this->email->to($email);
-          //   $this->email->subject($subject);
-          //   $this->email->message($pesan);
-
-          //   $this->email->send();
-
-            // $what = $this->email->send();
-          // }
-          // if ($what) $message = array('email' => 'Berhasil mengirim email!');
-          // else $message = array('email' => show_error($this->email->print_debugger()));  
-
-          // cek jika query berhasil
+          // Cek jika query berhasil
           if ($query) $message = array('status' => true, 'message' => 'Berhasil menambahkan buku');
           else $message = array('status' => true, 'message' => 'Gagal menambahkan buku');
 
-          // simpan message sebagai session
+          // Simpan message sebagai session
           $this->session->set_flashdata('message', $message);
-        // }
 
-        // refresh page
+        // Refresh page
         redirect('buku/add', 'refresh');
 			} 
     }
@@ -196,16 +118,14 @@ class Buku extends MY_Controller {
   public function edit($id = null)
   {
     // Jika form di submit jalankan blok kode ini
-    if ($this->input->post('submit-buku')) {
-
-      // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
+    if ($this->input->post('submit-buku'))
+    {
+      // Mengatur validasi data stok,
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('stock', 'Stok', 'required');
 
-      // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
+      // Mengatur validasi data harga,
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('harga', 'Harga', 'required');
 
       // Mengatur pesan error validasi data
@@ -244,14 +164,14 @@ class Buku extends MY_Controller {
         // Jalankan function insert pada model_buku
         $query = $this->model_buku->update($id, $data);
 
-        // cek jika query berhasil
+        // Cek jika query berhasil
         if ($query) $message = array('status' => true, 'message' => 'Berhasil memperbarui buku');
         else $message = array('status' => true, 'message' => 'Gagal memperbarui buku');
 
-        // simpan message sebagai session
+        // Simpan message sebagai session
         $this->session->set_flashdata('message', $message);
 
-        // refresh page
+        // Refresh page
         redirect('buku/edit/'.$id, 'refresh');
 			} 
     }
@@ -282,14 +202,14 @@ class Buku extends MY_Controller {
     // Jalankan function delete pada model_buku
     $query = $this->model_buku->delete($id);
 
-    // cek jika query berhasil
+    // Cek jika query berhasil
     if ($query) $message = array('status' => true, 'message' => 'Berhasil menghapus buku');
     else $message = array('status' => true, 'message' => 'Gagal menghapus buku');
 
-    // simpan message sebagai session
+    // Simpan message sebagai session
     $this->session->set_flashdata('message', $message);
 
-    // refresh page
+    // Refresh page
     redirect('buku', 'refresh');
   }
 }

@@ -59,10 +59,10 @@ class Order extends MY_Controller {
           if ($query) $message = array('status' => true, 'message' => 'Konfirmasi pengiriman berhasil');
           else $message = array('status' => true, 'message' => 'Konfirmasi pengiriman gagal');
 
-          // simpan message sebagai session
+          // Simpan message sebagai session
           $this->session->set_flashdata('message', $message);
 
-          // refresh page
+          // Refresh page
           redirect('order', 'refresh');
 
         } 
@@ -74,14 +74,12 @@ class Order extends MY_Controller {
     // Jika form di submit jalankan blok kode ini
     if ($this->input->post('submit-order')) {
 
-      // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
+      // Mengatur validasi data stok,
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('stock', 'Stok', 'required');
 
-      // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
+      // Mengatur validasi data harga,
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('harga', 'Harga', 'required');
 
       // Mengatur pesan error validasi data
@@ -127,10 +125,10 @@ class Order extends MY_Controller {
         if ($query) $message = array('status' => true, 'message' => 'Berhasil memperbarui buku');
         else $message = array('status' => true, 'message' => 'Gagal memperbarui buku');
 
-        // simpan message sebagai session
+        // Simpan message sebagai session
         $this->session->set_flashdata('message', $message);
 
-        // refresh page
+        // Refresh page
         redirect('buku/edit/'.$id, 'refresh');
 			} 
     }
@@ -161,14 +159,14 @@ class Order extends MY_Controller {
     // Jalankan function delete pada model_order
     $query = $this->model_order->delete($id);
 
-    // cek jika query berhasil
+    // Cek jika query berhasil
     if ($query) $message = array('status' => true, 'message' => 'Berhasil menghapus buku');
     else $message = array('status' => true, 'message' => 'Gagal menghapus buku');
 
-    // simpan message sebagai session
+    // Simpan message sebagai session
     $this->session->set_flashdata('message', $message);
 
-    // refresh page
+    // Refresh page
     redirect('buku', 'refresh');
   }
 }

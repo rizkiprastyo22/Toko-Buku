@@ -31,18 +31,13 @@
                 </div>
               <?php endif; ?>
               <div id="basic-form">
-                <!-- <div class="input-field col s12 m12 l12">
-                    <h5 class="center-align">Saldo Ubur Cash Anda</h5>
-                </div> -->
+
                 <div class="input-field col s12 m12 l12">
-                    <h3 class="center-align">Rp. <?php echo number_format($this->session->userdata('saldo')); ?></h3>
+                    <h3 class="center-align">Rp<?php echo number_format($this->session->userdata('saldo'),2,',','.'); ?></h3>
                 </div>
                 <div class="input-field col s12 m12 l12 center-align">
-                  <!-- <a href="<?php echo base_url('profile/edit/' . $this->session->userdata('id')); ?>" class="btn purple lighten-2 waves-effect waves-green">Top Up Sekarang</a><br><br> -->
                   <a href="#modal9" class="btn purple lighten-2 waves-effect waves-green">Top Up Sekarang</a>
                   <div id="modal9" class="modal left-align">
-                    <!-- <form class="row" method="post" action="" style="margin-top: 20px;" enctype="multipart/form-data"> -->
-                      <!-- <div class="container"> -->
                         <div class="modal-content purple lighten-2 white-text">
                           <h4 style="font-size: 1.5rem;">Konfirmasi Top Up</h4>
                         </div>
@@ -64,8 +59,6 @@
                           <input type="submit" name="submit-topup" value="Top Up" class="modal-close waves-effect waves-green btn purple lighten-2"></input>
                           <a href="" class="modal-close waves-effect waves-green btn-flat">Batal</a>
                         </div>
-                      <!-- </div> -->
-                    <!-- </form> -->
                   </div>
                 </div>
               </div>
@@ -103,14 +96,6 @@
               <div class="input-field col s12 right-align">
                   <button type="submit" name="submit-information" value="true" class="btn purple lighten-2 waves-effect waves-green">Simpan</button>
               </div>
-                <!-- <div class="btn purple lighten-2">
-                  <span>Upload Avatar</span>
-                  <input type="file" name="avatar2">
-                </div> -->
-                <!-- <div class="file-path-wrapper"> -->
-                  <!-- <input class="file-path validate" name="foto" type="text" accept="image/png, image/jpeg" value="<?php echo set_value('avatar'); ?>"> -->
-                <!-- </div>
-              </div> -->
             </form>
           </div>
 
@@ -130,10 +115,7 @@
                   </div>
                 </div>
               <?php endif; ?>
-              <!-- <div class="input-field col s12">
-                  <input id="password_lama" name="password_lama" type="password">
-                  <label for="password_lama" class="">Password Lama</label>
-              </div> -->
+              
               <div class="input-field col s12">
                   <input id="password_baru" name="password_baru" type="password">
                   <label for="password_baru" class="">Password Baru</label>

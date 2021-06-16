@@ -9,8 +9,7 @@ class Topup extends MY_Controller {
     // Cek apakah user sudah login
     $this->cekLogin();
 
-    // Cek apakah user login 
-    // sebagai mitra
+    // Cek apakah user login sebagai mitra
     $this->isAdmin();
 
     // Load model topup
@@ -35,8 +34,7 @@ class Topup extends MY_Controller {
     if ($this->input->post('submit-topup')) {
 
       // Mengatur validasi data password,
-      // # required = tidak boleh kosong
-      // # min_length[5] = password harus terdiri dari minimal 5 karakter
+      // required = tidak boleh kosong
       $this->form_validation->set_rules('status', 'Status Transaksi', 'required');
 
       // Mengatur pesan error validasi data
@@ -56,14 +54,14 @@ class Topup extends MY_Controller {
         // Jalankan function insert pada model_topup
         $query = $this->model_topup->insert_riwayat($id, $data2);
 
-        // cek jika query berhasil
+        // Cek jika query berhasil
         if ($query) $message = array('status' => true, 'message' => 'Top Up pengguna berhasil');
         else $message = array('status' => true, 'message' => 'Top Up pengguna gagal');
 
-        // simpan message sebagai session
+        // Simpan message sebagai session
         $this->session->set_flashdata('message', $message);
 
-        // refresh page
+        // Refresh page
         redirect('topup', 'refresh');
 		  } 
     }
@@ -100,14 +98,14 @@ class Topup extends MY_Controller {
     // Jalankan function delete pada model_topup
     $query = $this->model_topup->delete($id, $gagal);
 
-    // cek jika query berhasil
+    // Cek jika query berhasil
     if ($query) $message = array('status' => true, 'message' => 'Berhasil menghapus topup');
     else $message = array('status' => true, 'message' => 'Gagal menghapus topup');
 
-    // simpan message sebagai session
+    // Simpan message sebagai session
     $this->session->set_flashdata('message', $message);
 
-    // refresh page
+    // Refresh page
     redirect('topup', 'refresh');
   }
 }

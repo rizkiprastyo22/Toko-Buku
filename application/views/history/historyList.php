@@ -85,7 +85,7 @@
                     ?>
                     <tr>
                       <td><?php echo ++$no; ?></td>
-                      <td class="center-align">Rp. <?php echo number_format($row->topup); ?></td>
+                      <td class="center-align">Rp<?php echo number_format($row->topup,2,',','.'); ?></td>
                       <td class="center-align"><?php echo ucwords($row->status); ?></td>
                     </tr>
                   <?php endforeach; ?>

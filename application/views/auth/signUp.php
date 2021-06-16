@@ -29,9 +29,7 @@
       <nav class="purple lighten-2 navbar-fixed" role="navigation">
           <div class="nav-wrapper container">
               <a id="logo-container" href="<?php echo base_url('auth/login'); ?>" class="brand-logo center">
-                <span>TOKO UBUR UBUR</span>
-                <!-- <img src="<?php echo base_url('img/logoku.png'); ?>" width="200" 
-                height="50" alt="Toko Ubur Ubur"> -->
+                <span>SERENDIPITY BOOKSTORE</span>
               </a>
           </div>
       </nav>
@@ -90,11 +88,9 @@
     </main>
 
     <footer class="page-footer white">
-        <div class="footer-copyright blue-grey lighten-1">
+        <div class="footer-copyright purple darken-1">
             <div class="nav-wrapper container center">
-              <p>Follow Us! 
-            
-                | Instagram: <a rel="nofollow" href="https://templatemo.com">@hematwarrior</a></p>
+              <p>Follow Us On <a rel="nofollow" href="https://github.com/sheilla13/" class="white-text"><b>@serendipitybs</b>!</a></p>
             </div>
         </div>
     </footer>

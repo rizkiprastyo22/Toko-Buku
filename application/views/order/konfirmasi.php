@@ -13,13 +13,7 @@
               </div>
             </div>
           <?php endif; ?>
-          <!-- <?php if($message = $this->session->flashdata('message')): ?>
-            <div class="col s12">
-              <div class="card-panel <?php echo ($message['status']) ? 'green' : 'red'; ?>">
-                <span class="white-text"><?php echo $message['message']; ?></span>
-              </div>
-            </div>
-          <?php endif; ?> -->
+          
           <div class="input-field col s12 m6">
               <input id="oid" readonly name="oid" type="text" value="<?php echo $order->oid; ?>">
               <label for="oid" class="">ID Pesanan</label>
